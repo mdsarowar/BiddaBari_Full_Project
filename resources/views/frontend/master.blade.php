@@ -186,6 +186,31 @@
     let base_url = {!! json_encode(url('/')) !!}+'/';
 </script>
 
+<script>
+    function addSimpleProCard(spid) {
+        console.log(spid);
+        var formcls = '.addSimpleCardFrom'+spid;
+        var formurl = $(formcls).attr('action');
+        var formurl = $(formcls).attr('action');
+        // var cart= $('#cart_amount').text('sar');
+
+        $.ajax({
+            url : formurl,
+            method : 'Post',
+            data : $(formcls).serialize(),
+            success : function(response){
+                if(response.status == 'success'){
+                    // console.log('success');
+                    toastr.success(response.msg,'Success');
+                    // $('.cart_count').text(response.cart_count);
+                }else{
+                    toastr.error(response.msg,'Failed');
+                }
+            }
+        });
+    }
+</script>
+
 @stack('script')
 {!! isset($siteSettings) ? $siteSettings->default_seo_code_on_footer : '' !!}
 </body>

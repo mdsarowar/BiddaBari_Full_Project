@@ -60,9 +60,27 @@
             <div class="mobile-responsive-menu">
                 <div class="logo">
                     <a href="{{ route('front.home') }}">
-                                                <img src="{{ asset(isset($siteSettings) ? $siteSettings->logo : 'frontend/assets/images/logos/logo-small.png') }}" class="logo-one" alt="logo">
-                                                <img src="{{ asset(isset($siteSettings) ? $siteSettings->logo : 'frontend/assets/images/logos/logo-small-white.png') }}" class="logo-two" alt="logo">
+                        <img src="{{ asset(isset($siteSettings) ? $siteSettings->logo : 'frontend/assets/images/logos/logo-small.png') }}" class="logo-one" alt="logo">
+                        <img src="{{ asset(isset($siteSettings) ? $siteSettings->logo : 'frontend/assets/images/logos/logo-small-white.png') }}" class="logo-two" alt="logo">
                     </a>
+                </div>
+
+                <div class="modal" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Modal title</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Modal body text goes here.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -72,8 +90,8 @@
         <div class="container-fluid">
             <nav class="navbar navbar-expand-md navbar-light ">
                 <a class="navbar-brand" href="{{ route('front.home') }}">
-                                        <img src="{{ asset(isset($siteSettings) ? $siteSettings->logo : 'frontend/assets/images/logos/logo.png') }}" class="logo-one" alt="Logo">
-                                        <img src="{{ asset(isset($siteSettings) ? $siteSettings->logo : 'frontend/assets/images/logos/logo-2.png') }}" class="logo-two" alt="Logo">
+                        <img src="{{ asset(isset($siteSettings) ? $siteSettings->logo : 'frontend/assets/images/logos/logo.png') }}" class="logo-one" alt="Logo">
+                        <img src="{{ asset(isset($siteSettings) ? $siteSettings->logo : 'frontend/assets/images/logos/logo-2.png') }}" class="logo-two" alt="Logo">
                 </a>
                 <div class="nav-widget-form">
                     <form class="search-form search-form-bg" action="{{ route('search-content-home') }}" method="post">
@@ -120,6 +138,9 @@
                         </div>
                     </div>
                 </div>
+
+
+
             </nav>
         </div>
     </div>
