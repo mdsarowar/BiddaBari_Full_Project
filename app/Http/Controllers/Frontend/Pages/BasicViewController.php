@@ -44,7 +44,7 @@ class BasicViewController extends Controller
         {
             $course->order_status = ViewHelper::checkIfCourseIsEnrolled($course);
         }
-        $this->products = Product::whereStatus(1)->latest()->select('id', 'title', 'image', 'slug', 'description','price')->get();
+        $this->products = Product::whereStatus(1)->latest()->select('id', 'title', 'image', 'slug', 'description','stock_amount','price')->get();
 //        $this->homeSliderCourses = Course::where('show_home_slider', 1)->select('id', 'slug', 'title', 'banner', 'description')->get();
         $this->homeSliderCourses = Advertisement::whereStatus(1)->whereContentType('course')->take(6)->get();
         $this->data = [

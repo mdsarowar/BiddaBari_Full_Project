@@ -28,7 +28,7 @@ class FrontendViewController extends Controller
     protected $comments = [], $jobCirculars = [], $jobCircular;
     public function allProducts ()
     {
-        $this->products = Product::whereStatus(1)->select('id','product_author_id','title','image','price', 'discount_amount', 'discount_start_date', 'discount_end_date', 'slug')->get();
+        $this->products = Product::whereStatus(1)->select('id','product_author_id', 'stock_amount','title','image','price', 'discount_amount', 'discount_start_date', 'discount_end_date', 'slug')->get();
         foreach ($this->products as $product)
         {
             if (!empty($product->discount_start_date) && !empty($product->discount_end_date))
@@ -185,6 +185,7 @@ class FrontendViewController extends Controller
 
     public function addToCart (Request $request)
     {
+//        return $request;
         try {
             $this->product = Product::find($request->product_id, ['id','title', 'price', 'image' ]);
             Cart::add([
@@ -196,6 +197,10 @@ class FrontendViewController extends Controller
                     'image' => $this->product->image,
                 ]
             ]);
+            $data['msg'] = 'Product added in cart';
+            $data['status'] = 'success';
+//            $data['cart_count'] = Cart::where('user_id',auth()->id())->count();
+            return $data;
             return ViewHelper::returnSuccessMessage('Product added to cart successfully.');
 //            return back()->with('success', 'Product added to cart successfully.');
         } catch (\Exception $exception)

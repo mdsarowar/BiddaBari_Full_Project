@@ -259,8 +259,8 @@
 
     {{--    @include('backend.includes.assets.plugin-files.date-time-picker')--}}
     {{--    @include('backend.includes.assets.plugin-files.editor')--}}
-{{--@include('backend.includes.assets.plugin-files.datatable')--}}
-{{--@include('backend.includes.assets.plugin-files.editor')--}}
+@include('backend.includes.assets.plugin-files.datatable')
+@include('backend.includes.assets.plugin-files.editor')
 
     <script>
         $(document).on('click', '.show-order-details', function () {

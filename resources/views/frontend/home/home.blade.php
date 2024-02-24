@@ -215,13 +215,44 @@
                             <div class="blog-card">
                                 <div class="book-btn-sec">
                                     <a href="{{ route('front.product-details',['id'=>$product->id, 'slug'=>$product->slug]) }}" class="read-btn btn btn-warning">Read More</a>
-                                    <a href="javascript:void(0)" class="read-btn btn btn-warning mt-1"> Add To Cart </a>
+                                    @php
+                                        $stockStatus = false;
+                                            if ($product->stock_amount > 0)
+                                            {
+                                                $stockStatus = true;
+                                            }
+                                    @endphp
+                                    <p></p>
+{{--                                    @if($stockStatus == true)--}}
+{{--                                        <p class="text-success f-s-19">In Stock</p>--}}
+{{--                                    @else--}}
+{{--                                        <p class="text-danger f-s-19">Out Of Stock</p>--}}
+{{--                                    @endif--}}
+                                    @if(!empty(\Cart::get($product->id)))
+                                        <a href="{{ route('front.view-cart') }}" class="default-btn ">এখনই কিনুন</a>
+                                    @else
+                                        @if($stockStatus == true)
+                                            <form action="{{ route('front.add-to-cart') }}" method="post"  class="addSimpleCardFrom{{$product->id}}">
+                                                @csrf
+                                                <input type="hidden" name="product_id" value="{{ $product->id }}" />
+                                                <input type="hidden" name="price" value="{{ $product->has_discount_validity == 'true' ? $grandPrice : $product->price }}" />
+                                                {{--                                <button type="submit" class="default-btn">Add to cart</button>--}}
+                                                <a href="javascript:void(0)"  onclick="addSimpleProCard({{$product->id}})" class="read-btn btn btn-warning mt-1"> Add To Cart </a>
+                                            </form>
+                                        @endif
+                                    @endif
+{{--                                    <a href="javascript:void(0)"  onclick="addSimpleProCard({{$product->id}})" class="read-btn btn btn-warning mt-1"> Add To Cart </a>--}}
                                 </div>
                                 <a href="{{ route('front.product-details',['id'=>$product->id, 'slug'=>$product->slug]) }}">
                                     <img src="{{ asset($product->image ?? 'frontend/logo/biddabari-card-logo.jpg') }}" alt="{{ $product->title }}">
                                 </a>
                                 <div class="content">
                                     <h3><a href="{{ route('front.product-details', ['id' => $product->id, 'slug' => $product->slug]) }}">{{ $product->title }}</a></h3>
+                                    @if($stockStatus == true)
+                                        <p class="text-success f-s-19">In Stock</p>
+                                    @else
+                                        <p class="text-danger f-s-19">Out Of Stock</p>
+                                    @endif
                                     <h5>TK {{$product->price}} </h5>
                                 </div>
                             </div>
