@@ -1,7 +1,7 @@
 <header class="top-header">
     <div class="container-fluid">
         <div class="row align-items-center">
-            <div class="col-lg-4 col-md-4">
+            <div class="col-lg-4 col-md-4 mobile_res">
                 <div class="header-left">
                     <ul>
                         <li>
@@ -28,7 +28,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-1 col-md-4">
+            <div class="col-lg-1 col-md-4 mobile_res">
                 <div class="header-right">
                     <ul class="social-list">
                         <li>
@@ -114,7 +114,6 @@
                                 </div>
 
                             @else
-{{--                                <a href="{{ route('register') }}" class="default-btn two border-radius-50">Sign Up</a>--}}
                                 <a href="{{ route('login') }}" {{--data-bs-toggle="modal" data-bs-target="#authModal"--}} class="default-btn two border-radius-50">Sign In</a>
                             @endif
                         </div>
@@ -130,13 +129,11 @@
                 <div class="side-item">
                     <a href="{{ route('login') }}" class=""><i class="ri-user-2-fill"></i></a>
                 </div>
-                <div class="circle-inner">
+                <!-- <div class="circle-inner">
                     <div class="ri-search-line"></div>
-                    <!--     <div class="circle circle-two"></div>-->
-                    <!--     <div class="circle circle-three"></div>-->
-                </div>
+                </div> -->
             </div>
-            <div class="container">
+            <!-- <div class="container">
                 <div class="side-nav-inner">
                     <div class="side-nav justify-content-center align-items-center">
                         <div class="side-item">
@@ -148,12 +145,9 @@
                                 </button>
                             </form>
                         </div>
-                        <!--      <div class="side-item">-->
-                        <!--      <a href="signup.html" class="default-btn two">Sign Up</a>-->
-                        <!--     </div>-->
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>
