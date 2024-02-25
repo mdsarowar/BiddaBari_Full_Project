@@ -2321,6 +2321,22 @@
 }
 
 @media only screen and (min-width:992px) and (max-width:1199px) {
+    .dis-course-price{
+        display: none;
+    }
+    .custome_dis_course_price{
+        display: block;
+    }
+    .bottom-content a {
+        font-size: 16px !important;
+        padding: 5px;
+    }
+    .courses-item .content .bottom-content {
+        margin-top: 65px;
+    }
+
+
+
     .desktop-nav .navbar .navbar-nav {
         margin-left: auto;
         margin-right: 40px
@@ -2666,9 +2682,30 @@
     .footer-widget .social-link li {
         margin-right: 7px
     }
+    .product_mobile_res .col-lg-3{
+        width: 33.33%;
+    }
+
+
 }
 
 @media only screen and (min-width:1200px) and (max-width:1299px) {
+
+    .dis-course-price{
+        display: none;
+    }
+    .custome_dis_course_price{
+        display: block;
+    }
+    .bottom-content a {
+        font-size: 16px !important;
+        padding: 5px;
+    }
+    .courses-item .content .bottom-content {
+        margin-top: 65px;
+    }
+
+
     .desktop-nav .navbar .navbar-nav {
         margin-right: 30px
     }
@@ -2866,6 +2903,19 @@
     .mean-menu ul li a:first-child {
         margin-left: 0px;
     }
+    .dis-course-price{
+        display: none;
+    }
+    .custome_dis_course_price{
+        display: block;
+    }
+    .bottom-content a {
+        font-size: 16px !important;
+        padding: 5px;
+    }
+    .courses-item .content .bottom-content {
+        margin-top: 65px;
+    }
 }
 
 @media only screen and (min-width:1350px) and (max-width:1469px) {
@@ -2873,6 +2923,20 @@
         max-width: 1340px !important;
         margin-left: auto !important;
         margin-right: auto !important
+    }
+
+    .dis-course-price{
+        display: none;
+    }
+    .custome_dis_course_price{
+        display: block;
+    }
+    .bottom-content a {
+        font-size: 16px !important;
+        padding: 5px;
+    }
+    .courses-item .content .bottom-content {
+        margin-top: 65px;
     }
 }
 
@@ -2882,9 +2946,41 @@
         margin-left: auto !important;
         margin-right: auto !important
     }
+    .dis-course-price{
+        display: none;
+    }
+    .custome_dis_course_price{
+        display: block;
+    }
+    .bottom-content a {
+        font-size: 16px !important;
+        padding: 5px;
+    }
+    .courses-item .content .bottom-content {
+        margin-top: 65px;
+    }
+
+}
+@media only screen and (min-width:1800px) and (max-width:2199px) {
+
+    .dis-course-price{
+        display: none;
+    }
+    .custome_dis_course_price{
+        display: block;
+    }
+    .bottom-content a {
+        font-size: 16px !important;
+        padding: 5px;
+    }
+    .courses-item .content .bottom-content {
+        margin-top: 65px;
+    }
 }
 
 @media only screen and (min-width:1800px) {
+
+    
     .container-fluid {
         max-width: 1640px !important;
         margin-left: auto !important;

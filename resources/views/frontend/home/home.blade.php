@@ -243,7 +243,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row product_mobile_res">
             @foreach($products as $product)
             <div class="col-lg-3 col-md-6">
                 <div class="blog-card">
@@ -282,10 +282,12 @@
                         {{-- <a href="javascript:void(0)" onclick="addSimpleProCard({{$product->id}})"
                             class="read-btn btn btn-warning mt-1"> Add To Cart </a>--}}
                     </div>
-                    <a href="{{ route('front.product-details',['id'=>$product->id, 'slug'=>$product->slug]) }}">
-                        <img src="{{ asset($product->image ?? 'frontend/logo/biddabari-card-logo.jpg') }}"
-                            alt="{{ $product->title }}">
-                    </a>
+                    <div class="blog_card_img">
+                  
+                            <img src="{{ asset($product->image ?? 'frontend/logo/biddabari-card-logo.jpg') }}"
+                                alt="{{ $product->title }}">
+                    
+                    </div>
                     <div class="content">
                         <h3><a
                                 href="{{ route('front.product-details', ['id' => $product->id, 'slug' => $product->slug]) }}">{{
