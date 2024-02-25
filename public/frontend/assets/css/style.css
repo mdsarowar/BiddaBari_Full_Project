@@ -7784,7 +7784,7 @@ img {
 
 
 
-@media only screen and (max-width: 520px) {
+@media only screen and (min-width : 280px) and (max-width: 420px) {
 
     .mobile_res{
         display: none;
@@ -7793,7 +7793,7 @@ img {
         display: block;
     }
     .cat_mobile_res .col-md-3, .cat_mobile_res .col-lg-4, .product_mobile_res .col-lg-3{
-        width: 50%;
+        width: 100%;
     }
     .content h3 a {
         font-size: 19px !important;
@@ -7812,6 +7812,52 @@ img {
         padding: 5px;
     }
     .blog-card {
+        height: 550px !important;
+    }
+    .courses-details-area .col-md-3, .col-md-6, .col-md-4, .col-md-8{
+        width: 100%;
+    }
+    .courses-details-area h1 {
+        font-size: 24px !important;
+    }
+    .courses-details-area h4 {
+        font-size: 18px !important;
+    }
+    .courses-details-area h2 {
+        padding-top: 35px !important;
+    }
+}
+@media only screen and (min-width : 421px) and (max-width: 520px) {
+
+    .mobile_res{
+        display: none;
+    }
+    .mobile_res_btn{
+        display: block;
+    }
+    .cat_mobile_res .col-md-3, .cat_mobile_res .col-lg-4, .product_mobile_res .col-lg-3{
+        width: 50%;
+    }
+    .content h3 a {
+        font-size: 16px !important;
+    }
+    .courses-item .content .bottom-content {
+        margin-top: 92px;
+    }
+    .dis-course-price{
+        display: none;
+    }
+    .custome_dis_course_price{
+        display: block;
+    }
+    .bottom-content a {
+        font-size: 14px !important;
+        padding: 5px;
+    }
+    .custome_dis_course_price span {
+        font-size: 14px !important;
+    }
+    .blog-card {
         height: 425px !important;
     }
     .courses-details-area .col-md-3, .col-md-6, .col-md-4, .col-md-8{
@@ -7825,6 +7871,12 @@ img {
     }
     .courses-details-area h2 {
         padding-top: 35px !important;
+    }
+    .custome_dis_course_price .course-price {
+        width: 85px;
+    }
+    .custome_dis_course_price .dis-course-amount {
+        width: 85px;
     }
 }
 
