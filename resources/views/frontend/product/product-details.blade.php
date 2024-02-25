@@ -12,14 +12,14 @@
                         <div class="py-2 text-center">
                             <a href="{{ route('front.show-product-pdf', ['content_id' => $product->id]) }}" class="btn rounded-0 btn-outline-success ">একটু পড়ে দেখুন</a>
                         </div>
-                        <div class="mt-3">
+                        <div class="mt-3 blog_card_img">
                             <img src="{{ asset(isset($product->image) ? $product->image : 'frontend/logo/biddabari-card-logo.jpg') }}" alt="" class="img-fluid" style="min-height: 250px" />
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="content">
-                        <h1 class="mb-0 f-s-45">{!! $product->title !!}</h1>
+                        <h1 class="mb-0 f-s-30">{!! $product->title !!}</h1>
                         <p class="mb-0 f-s-20">By {{ $product->productAuthor->name }}</p>
                         <p class="mb-0">Category Name: @foreach($product->productCategories as $productCategory){{ $productCategory->name.' ' }}@endforeach</p>
                         @if($product->has_discount_validity == 'true')
@@ -65,11 +65,11 @@
                                 <a href="{{ route('front.product-details', ['id' => $latestProduct->id, 'slug' => $latestProduct->slug]) }}" class="w-100">
                                     <div class="card border-0">
                                         <div class="row">
-                                            <div class="col-md-4 p-0 ps-1">
+                                            <div class="col-md-4 ps-1 pd_padding">
                                                 <img src="{{ asset(isset($latestProduct->image) ? $latestProduct->image : 'frontend/logo/biddabari-card-logo.jpg') }}" alt="" class="img-fluid w-100" style="height: 100px" />
                                             </div>
                                             <div class="col-md-8">
-                                                <h4>{{ $latestProduct->title }}</h4>
+                                                <h4 class="mb-0 f-s-21">{{ $latestProduct->title }}</h4>
                                             </div>
                                         </div>
                                     </div>
