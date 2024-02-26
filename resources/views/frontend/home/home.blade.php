@@ -243,7 +243,7 @@
                 </div>
             </div>
         </div>
-        <div class="row product_mobile_res">
+        <div class="row product_mobile_res pro_book_mobile_res">
             @foreach($products as $product)
             <div class="col-lg-3 col-md-6">
                 <div class="blog-card">
