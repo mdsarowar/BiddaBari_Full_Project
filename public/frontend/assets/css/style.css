@@ -7792,11 +7792,15 @@ img {
     .mobile_res_btn{
         display: block;
     }
-    .cat_mobile_res .col-md-3, .cat_mobile_res .col-lg-4, .product_mobile_res .col-lg-3{
+    .cat_mobile_res .col-md-3, .cat_mobile_res .col-lg-4{
         width: 100%;
     }
+    .pro_book_mobile_res .col-lg-3{
+        width: 50%;
+    }
     .content h3 a {
-        font-size: 19px !important;
+        font-size: 14px !important;
+        line-height: 16px;
     }
     .courses-item .content .bottom-content {
         margin-top: 65px;
@@ -7812,7 +7816,7 @@ img {
         padding: 5px;
     }
     .blog-card {
-        height: 550px !important;
+        height: 335px !important;
     }
     .courses-details-area .col-md-3, .col-md-6, .col-md-4, .col-md-8{
         width: 100%;

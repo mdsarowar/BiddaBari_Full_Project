@@ -9,7 +9,7 @@
                         <h2> ড্যাশবোর্ড </h2>
                         <hr class="w-25 mx-auto bg-danger"/>
                     </div>
-                    <div class="mt-3 row">
+                    <div class="mt-3 row product_mobile_res">
                         <div class="col-md-3">
                             <div class="card card-body text-center">
                                 <h3 class="f-s-30">Enrolled Courses</h3>
@@ -37,7 +37,7 @@
                     </div>
                     <div class="mt-3 row">
                         <div class="col-md-12">
-                            <div class="card">
+                            <div class="card overflow-scroll">
                                 <div class="card-header">
                                     <h3 class="text-center f-s-32">Enrolled Courses & Exams</h3>
                                 </div>
