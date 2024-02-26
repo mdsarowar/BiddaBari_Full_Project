@@ -159,7 +159,6 @@
                         </div>
 
 
-
                         <button class="btn btn-warning mobile_res_btn" type="button" data-bs-toggle="offcanvas"
                             data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
                             Student Dashboard
@@ -274,26 +273,27 @@
     <!-- Sweet Alert JS -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js"></script>
     @if(Session::has('success'))
-    <script>
-        tr.succe{ { ('success') } } ");
-    </script>
+        <script>
+            toastr.success("{{ Session::get('success') }}");
+        </script>
     @endif
     @if(Session::has('error'))
-    <script>
-             oasrro r') }}");
-    </script>
+        <script>
+            toastr.error("{{ Session::get('error') }}");
+        </script>
     @endif
     @if(Session::has('customError'))
-    <script>
-        Swal.fire({
-           le:           text: "{{ Session::get('customError') }}",
-            icon: 'error',
-            nft: 
-        })
-    </script>
+        <script>
+            Swal.fire({
+                title: 'Error!',
+                text: "{{ Session::get('customError') }}",
+                icon: 'error',
+                confirmButtonText: 'Ok'
+            })
+        </script>
     @endif
     <script>
-               ase_url!!json_en)}+'/';
+        let base_url = {!! json_encode(url('/')) !!}+'/';
     </script>
 
     {{--fb messenger integrate starts--}}
@@ -305,27 +305,27 @@
     </div>
 
     <script>
-       var c hatbox = ment.getElb-customer-chat');
+        var chatbox = document.getElementById('fb-customer-chat');
         chatbox.setAttribute("page_id", "1652435885033225");
-        chatbox.setAtuten", "biz_inbox");
+        chatbox.setAttribute("attribution", "biz_inbox");
     </script>
 
     <!-- Your SDK code -->
     <script>
-        fbAsyncInit = functio {
-F        nit({
-                xfbml: true,
-                version: 'v18.0'
+        window.fbAsyncInit = function() {
+            FB.init({
+                xfbml            : true,
+                version          : 'v18.0'
             });
         };
 
-        (function (d, s, id) {
+        (function(d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) return;
             js = d.createElement(s); js.id = id;
             js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
             fjs.parentNode.insertBefore(js, fjs);
-        }(doct, 'scrfacebook-jssdk'));
+        }(document, 'script', 'facebook-jssdk'));
     </script>
     {{--fb messenger integrate ends--}}
 

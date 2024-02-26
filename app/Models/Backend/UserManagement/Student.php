@@ -56,6 +56,10 @@ class Student extends Model
             {
                 $student->batchExams()->detach();
             }
+            if (!empty($student->product))
+            {
+                $student->product()->detach();
+            }
         });
     }
 

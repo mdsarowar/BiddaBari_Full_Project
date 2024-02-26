@@ -38,25 +38,25 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Order No.</th>
-                                    <th>Title</th>
-                                    <th>C.Image</th>
+{{--                                    <th>Order No.</th>--}}
+                                    <th>Student</th>
+                                    <th>Course</th>
                                     <th>Price</th>
-                                    <th>Discount</th>
-                                    <th>S. Name</th>
+{{--                                    <th>Discount</th>--}}
+{{--                                    <th>S. Name</th>--}}
                                     <th>Payment</th>
-                                    <th>Paid</th>
-                                    <th>Due</th>
+{{--                                    <th>Paid</th>--}}
+{{--                                    <th>Due</th>--}}
                                     <th>Payment Info</th>
-                                    <th>Vendor</th>
-                                    <th>Paid Form</th>
-                                    <th>Paid to</th>
+{{--                                    <th>Vendor</th>--}}
+{{--                                    <th>Paid Form</th>--}}
+{{--                                    <th>Paid to</th>--}}
                                     <th>Txt Id</th>
                                     <th>Enroll Date</th>
                                     <th>Payment Status</th>
                                     <th>Payment & Contact Status</th>
-                                    <th>Order Status</th>
-                                    <th>Contacted By</th>
+{{--                                    <th>Order Status</th>--}}
+{{--                                    <th>Contacted By</th>--}}
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -65,30 +65,31 @@
                                 @foreach($allOrders as $allOrder)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td><a href="javascript:void(0)" data-order-id="{{ $allOrder->id }}" class="">#{{ $allOrder->order_invoice_number }}</a></td>
+{{--                                        <td><a href="javascript:void(0)" data-order-id="{{ $allOrder->id }}" class="">#{{ $allOrder->order_invoice_number }}</a></td>--}}
                                         <td>
-                                            {{ $allOrder->ordered_for == 'course' ? $allOrder->course->title : '' }}
-                                            {{ $allOrder->ordered_for == 'batch_exam' ? $allOrder->batchExam->title : '' }}
-                                            {{ $allOrder->ordered_for == 'product' ? $allOrder->product->title : '' }}
+                                            {{ $allOrder->user->name }} {{ $allOrder->user->mobile }}
                                         </td>
                                         <td>
                                             <img src="{{ $allOrder->ordered_for == 'course' ? asset($allOrder->course->banner ?? 'frontend/logo/biddabari-card-logo.jpg') : '' }}{{ $allOrder->ordered_for == 'batch_exam' ? asset($allOrder->batchExam->banner ?? 'frontend/logo/biddabari-card-logo.jpg') : '' }}{{ $allOrder->ordered_for == 'product' ? asset($allOrder->product->banner ?? 'frontend/logo/biddabari-card-logo.jpg') : '' }}" alt="" style="height: 70px" />
+                                            <br> {{ $allOrder->ordered_for == 'course' ? $allOrder->course->title : '' }}
+                                            {{ $allOrder->ordered_for == 'batch_exam' ? $allOrder->batchExam->title : '' }}
+                                            {{ $allOrder->ordered_for == 'product' ? $allOrder->product->title : '' }}
                                         </td>
                                         <td>{{ $allOrder->ordered_for == 'course' ? $allOrder->course->price ?? 0 : '' }}{{ $allOrder->ordered_for == 'batch_exam' ? $allOrder->batchExam->price ?? 0 : '' }}{{ $allOrder->ordered_for == 'product' ? $allOrder->product->price ?? 0 : '' }}</td>
-                                        <td>{{ $allOrder->ordered_for == 'course' ? $totalDiscount = $allOrder->course->discount_type == 1 ? $allOrder->course->discount_amount : ($allOrder->course->discount_amount * $allOrder->course->price)/100 : 0 }}{{ $allOrder->ordered_for == 'batch_exam' ? $totalDiscount = $allOrder->batchExam->discount_type == 1 ? $allOrder->batchExam->discount_amount : ($allOrder->batchExam->discount_amount * $allOrder->batchExam->price)/100 : 0 }}{{ $allOrder->ordered_for == 'product' ? $allOrder->product->discount_amount :  0 }}</td>
+{{--                                        <td>{{ $allOrder->ordered_for == 'course' ? $totalDiscount = $allOrder->course->discount_type == 1 ? $allOrder->course->discount_amount : ($allOrder->course->discount_amount * $allOrder->course->price)/100 : 0 }}{{ $allOrder->ordered_for == 'batch_exam' ? $totalDiscount = $allOrder->batchExam->discount_type == 1 ? $allOrder->batchExam->discount_amount : ($allOrder->batchExam->discount_amount * $allOrder->batchExam->price)/100 : 0 }}{{ $allOrder->ordered_for == 'product' ? $allOrder->product->discount_amount :  0 }}</td>--}}
 {{--                                        @php($totalDiscount = $allOrder->course->discount_type == 1 ? $allOrder->course->discount_amount : ($allOrder->course->discount_amount * $allOrder->course->price)/100)--}}
-                                        <td>{{ $allOrder->user->name }}</td>
+{{--                                        <td>{{ $allOrder->user->name }} {{ $allOrder->user->mobile }}</td>--}}
                                         <td>
                                             Total: {{ $allOrder->total_amount ?? 0 }} <br>
                                             Paid: {{ $allOrder->paid_amount ?? 0 }} <br>
                                             Due: {{ $allOrder->total_amount - $allOrder->paid_amount }}
                                         </td>
-                                        <td>{{ $allOrder->paid_amount ?? 0 }}</td>
-                                        <td>{{ $allOrder->total_amount - $allOrder->paid_amount }}</td>
+{{--                                        <td>{{ $allOrder->paid_amount ?? 0 }}</td>--}}
+{{--                                        <td>{{ $allOrder->total_amount - $allOrder->paid_amount }}</td>--}}
                                         <td>F- {{ $allOrder->paid_from }} <br> T- {{ $allOrder->paid_to }} <br> V- {{ $allOrder->vendor }}  </td>
-                                        <td>{{ $allOrder->vendor ?? '' }}</td>
-                                        <td>{{ $allOrder->paid_from }}</td>
-                                        <td>{{ $allOrder->paid_to }}</td>
+{{--                                        <td>{{ $allOrder->vendor ?? '' }}</td>--}}
+{{--                                        <td>{{ $allOrder->paid_from }}</td>--}}
+{{--                                        <td>{{ $allOrder->paid_to }}</td>--}}
                                         <td>{{ $allOrder->txt_id }}</td>
                                         <td>{{ $allOrder->created_at->format('d M, Y') }}</td>
                                         <td>{{ $allOrder->payment_status }}</td>
@@ -97,12 +98,12 @@
                                             <a href="javascript:void(0)" class="badge bg-primary m-1">Contact {{ $allOrder->contact_status }}</a><br>
                                             <a href="javascript:void(0)" class="badge bg-primary m-1">Order {{ $allOrder->status }}</a>
                                         </td>
-                                        <td>
-                                            <a href="javascript:void(0)" class="badge bg-primary">{{ $allOrder->status == 0 ? 'Pending' : '' }}</a>
-                                            <a href="javascript:void(0)" class="badge bg-primary">{{ $allOrder->status == 1 ? 'Approved' : '' }}</a>
-                                            <a href="javascript:void(0)" class="badge bg-primary">{{ $allOrder->status == 2 ? 'Canceled' : '' }}</a>
-                                        </td>
-                                        <td>{{ $allOrder->chckedBy->name ?? '' }}</td>
+{{--                                        <td>--}}
+{{--                                            <a href="javascript:void(0)" class="badge bg-primary">{{ $allOrder->status == 0 ? 'Pending' : '' }}</a>--}}
+{{--                                            <a href="javascript:void(0)" class="badge bg-primary">{{ $allOrder->status == 1 ? 'Approved' : '' }}</a>--}}
+{{--                                            <a href="javascript:void(0)" class="badge bg-primary">{{ $allOrder->status == 2 ? 'Canceled' : '' }}</a>--}}
+{{--                                        </td>--}}
+{{--                                        <td>{{ $allOrder->chckedBy->name ?? '' }}</td>--}}
                                         <td>
                                             @can('get-order-details')
                                             <a href="" data-order-id="{{ $allOrder->id }}" class="btn btn-sm show-order-details btn-warning mt-1" title="Change Order Status">
@@ -113,10 +114,10 @@
                                                 <i class="fa-solid fa-edit"></i>
                                             </a>
                                             <br>
-                                            <a href="" data-blog-category-id="{{ $allOrder->id }}" class="btn btn-sm btn-primary blog-category-edit-btnx mt-1" title="Change Order Status">
-                                                <i class="fa-solid fa-edit"></i>
-                                            </a>
-                                            <br />
+{{--                                            <a href="" data-blog-category-id="{{ $allOrder->id }}" class="btn btn-sm btn-primary blog-category-edit-btnx mt-1" title="Change Order Status">--}}
+{{--                                                <i class="fa-solid fa-edit"></i>--}}
+{{--                                            </a>--}}
+{{--                                            <br />--}}
                                                 @can('delete-course-order')
                                                     <form class="d-inline" action="{{ route('course-orders.destroy', $allOrder->id) }}" method="post" >
                                                         @csrf
@@ -261,6 +262,53 @@
     {{--    @include('backend.includes.assets.plugin-files.editor')--}}
 @include('backend.includes.assets.plugin-files.datatable')
 @include('backend.includes.assets.plugin-files.editor')
+
+<script>
+    $(document).on('click', '.blog-category-edit-btn', function () {
+        event.preventDefault();
+        var courseId = $(this).attr('data-blog-category-id'); //change value
+        $.ajax({
+            url: base_url+"course-orders/"+courseId+"/edit",
+            method: "GET",
+            dataType: "JSON",
+            success: function (data) {
+                console.log(data);
+                if (data.paid_amount > 0)
+                {
+                    $('input[name="paid_amount"]').val(data.paid_amount);
+                } else {
+                    $('input[name="paid_amount"]').val(data.total_amount);
+                }
+                $('input[name="paid_amount"]').attr('data-total-amount', data.total_amount);
+                $.each($('select[name="payment_status"] option'), function (paymentIndex, payment) {
+                    if ($(this).val() == data.payment_status)
+                    {
+                        $(this).attr('selected', true);
+                    }
+                })
+                $.each($('select[name="contact_status"] option'), function (contactIndex, contact) {
+                    if ($(this).val() == data.contact_status)
+                    {
+                        $(this).attr('selected', true);
+                    }
+                })
+                $.each($('select[name="status"] option'), function (statusIndex, status) {
+                    if ($(this).val() == data.status)
+                    {
+                        $(this).attr('selected', true);
+                    }
+                })
+                $(".select2").select2({
+                    minimumResultsForSearch: "",
+                    width: "100%",
+
+                })
+                $('#courseSectionForm').attr('action', base_url+"course-orders/"+courseId);
+                $('#blogCategoryModal').modal('show');
+            }
+        })
+    })
+</script>
 
     <script>
         $(document).on('click', '.show-order-details', function () {

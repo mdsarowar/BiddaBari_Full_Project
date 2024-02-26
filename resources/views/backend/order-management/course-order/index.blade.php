@@ -125,7 +125,7 @@
                             @endif
                             </tbody>
                         </table>
-                        {{ $courseOrders->links() }}
+{{--                        {{ $courseOrders->links() }}--}}
                     </div>
                 </div>
             </div>
@@ -275,14 +275,14 @@
 
 @push('script')
 
-{{--    @include('backend.includes.assets.plugin-files.datatable')--}}
+    @include('backend.includes.assets.plugin-files.datatable')
 
 {{--        @include('backend.includes.assets.plugin-files.date-time-picker')--}}
 {{--        @include('backend.includes.assets.plugin-files.editor')--}}
 
     {{--    edit course category--}}
-@include('backend.includes.assets.plugin-files.datatable')
-@include('backend.includes.assets.plugin-files.editor')
+{{--@include('backend.includes.assets.plugin-files.datatable')--}}
+{{--@include('backend.includes.assets.plugin-files.editor')--}}
 
     <script>
         $(document).on('click', '.blog-category-edit-btn', function () {

@@ -23,10 +23,10 @@ class AllOrdersController extends Controller
 //        return $dataTable->render('backend.order-management.all-order.index');
         if (!empty($request->order_type) && $request->order_type != 'all')
         {
-            $this->allOrders = ParentOrder::where(['ordered_for' => $request->order_type, 'is_free_course' => 0])->latest()->paginate(20);
+            $this->allOrders = ParentOrder::where(['ordered_for' => $request->order_type, 'is_free_course' => 0])->where('status','pending')->latest()->paginate(30);
         } else {
 //            $this->courseOrders = CourseOrder::latest()->take(30)->get();
-            $this->allOrders = ParentOrder::latest()->take(1000)->paginate(20);
+            $this->allOrders = ParentOrder::where('status','pending')->latest()->take(1000)->paginate(30);
         }
         return view('backend.order-management.all-order.index', [
             'allOrders'  => !empty($this->allOrders) ? $this->allOrders : '',

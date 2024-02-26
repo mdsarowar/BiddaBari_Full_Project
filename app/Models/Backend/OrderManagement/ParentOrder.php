@@ -240,6 +240,10 @@ class ParentOrder extends Model
         {
             $batchExam = BatchExam::find($modelId);
             $batchExam->students()->detach(Student::where('user_id', $userId)->first()->id);
+        }elseif ($modelType=='product'){
+            $product=Product::find($modelId);
+            $product->students()->detach(Student::where('user_id', $userId)->first()->id);
+
         }
     }
 

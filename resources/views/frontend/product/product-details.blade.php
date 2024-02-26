@@ -49,7 +49,7 @@
                                 <input type="hidden" name="product_id" value="{{ $product->id }}" />
                                 <input type="hidden" name="price" value="{{ $product->has_discount_validity == 'true' ? $grandPrice : $product->price }}" />
 {{--                                <button type="submit" class="default-btn">Add to cart</button>--}}
-                                <button type="submit" class="default-btn">কার্টে যোগ করুন</button>
+                                <button type="submit" class="default-btn cart_count">কার্টে যোগ করুন</button>
                             </form>
                             @endif
                         @endif

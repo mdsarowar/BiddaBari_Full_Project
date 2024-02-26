@@ -267,7 +267,7 @@
                         <a href="{{ route('front.view-cart') }}" class="default-btn ">এখনই কিনুন</a>
                         @else
                         @if($stockStatus == true)
-                        <form action="{{ route('front.add-to-cart') }}" method="post"
+                        <form action="{{ route('front.add-to-cart-home') }}" method="post"
                             class="addSimpleCardFrom{{$product->id}}">
                             @csrf
                             <input type="hidden" name="product_id" value="{{ $product->id }}" />
@@ -275,7 +275,7 @@
                                 value="{{ $product->has_discount_validity == 'true' ? $grandPrice : $product->price }}" />
                             {{-- <button type="submit" class="default-btn">Add to cart</button>--}}
                             <a href="javascript:void(0)" onclick="addSimpleProCard({{$product->id}})"
-                                class="read-btn btn btn-warning mt-1"> Add To Cart </a>
+                                class="read-btn btn btn-warning cart_count mt-1"> Add To Cart </a>
                         </form>
                         @endif
                         @endif
@@ -283,10 +283,10 @@
                             class="read-btn btn btn-warning mt-1"> Add To Cart </a>--}}
                     </div>
                     <div class="blog_card_img">
-                  
+
                             <img src="{{ asset($product->image ?? 'frontend/logo/biddabari-card-logo.jpg') }}"
                                 alt="{{ $product->title }}">
-                    
+
                     </div>
                     <div class="content">
                         <h3><a

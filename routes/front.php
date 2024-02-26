@@ -49,6 +49,7 @@ Route::as('front.')->group(function (){
     Route::get('/product-details/{id}/{slug?}', [FrontendViewController::class, 'productDetails'])->name('product-details');
     Route::get('/view-cart', [FrontendViewController::class, 'viewCart'])->name('view-cart');
     Route::post('/add-to-cart', [FrontendViewController::class, 'addToCart'])->name('add-to-cart');
+    Route::post('/add-to-cart-home', [FrontendViewController::class, 'addToCarthome'])->name('add-to-cart-home');
     Route::get('/remove-from-cart/{id}', [FrontendViewController::class, 'removeFromCart'])->name('remove-from-cart');
     Route::get('/all-job-circulars', [FrontendViewController::class, 'allJobCirculars'])->name('all-job-circulars');
     Route::get('/job-circular-details/{id}/{slug?}', [FrontendViewController::class, 'jobCircularDetail'])->name('job-circular-details');

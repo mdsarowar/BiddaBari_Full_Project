@@ -54,6 +54,10 @@ class Product extends Model
             {
                 $product->contactMessages->each->delete();
             }
+            if (!empty($product->students))
+            {
+                $product->students()->detach();
+            }
             if (!empty($product->siteSeos))
             {
                 $product->siteSeos->each->delete();
