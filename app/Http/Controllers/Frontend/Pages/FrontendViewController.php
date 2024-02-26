@@ -200,6 +200,32 @@ class FrontendViewController extends Controller
             $data['msg'] = 'Product added in cart';
             $data['status'] = 'success';
 //            $data['cart_count'] = Cart::where('user_id',auth()->id())->count();
+//            return $data;
+            return ViewHelper::returnSuccessMessage('Product added to cart successfully.');
+//            return back()->with('success', 'Product added to cart successfully.');
+        } catch (\Exception $exception)
+        {
+//            return back()->with('error',$exception->getMessage());
+            return response()->json($exception->getMessage());
+        }
+    }
+    public function addToCarthome (Request $request)
+    {
+//        return $request;
+        try {
+            $this->product = Product::find($request->product_id, ['id','title', 'price', 'image' ]);
+            Cart::add([
+                'id' => $this->product->id,
+                'name' => $this->product->title,
+                'price' => $request->price,
+                'quantity' => 1,
+                'attributes' => [
+                    'image' => $this->product->image,
+                ]
+            ]);
+            $data['msg'] = 'Product added in cart';
+            $data['status'] = 'success';
+//            $data['cart_count'] = Cart::where('user_id',auth()->id())->count();
             return $data;
             return ViewHelper::returnSuccessMessage('Product added to cart successfully.');
 //            return back()->with('success', 'Product added to cart successfully.');

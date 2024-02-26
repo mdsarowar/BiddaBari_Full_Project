@@ -27,10 +27,15 @@ class CourseOrderController extends Controller
         {
 //            $this->courseOrders = CourseOrder::whereCourseId($request->course_id)->get();
             $this->courseOrders = ParentOrder::where('ordered_for', 'course')->whereParentModelId($request->course_id)->latest()->paginate(20);
+//            $this->courseOrders = ParentOrder::where('status', 'approved')->whereParentModelId($request->course_id)->latest()->paginate(20);
+//            return $this->courseOrders;
         } else {
 //            $this->courseOrders = CourseOrder::latest()->take(30)->get();
-            $this->courseOrders = ParentOrder::where('ordered_for', 'course')->latest()->latest()->paginate(20);
+            $this->courseOrders = ParentOrder::where('ordered_for', 'course')->latest()->paginate(20);
+//            $this->courseOrders = ParentOrder::where('status','approved')->latest()->paginate(20);
+//            dd($this->courseOrders) ;
         }
+//        $this->courseOrders=$this->courseOrders->where('status','pending')->get();
         return view('backend.order-management.course-order.index', [
 //            'courses'   => Course::whereStatus(1)->get(),
 //            'courseCategories'   => CourseCategory::whereStatus(1)->whereParentId(0)->get(),
@@ -102,6 +107,7 @@ class CourseOrderController extends Controller
      */
     public function destroy(string $id)
     {
+//        return $id;
         abort_if(Gate::denies('delete-course-order'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 //        CourseOrder::find($id)->delete();
 //        ParentOrder::find($id)->delete();
