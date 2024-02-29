@@ -41,6 +41,7 @@
     </div>
 </div>
 
+{{\Illuminate\Support\Facades\Session::put('course_redirect_url',\Illuminate\Support\Facades\Request::url())}}
 
 <div class="featured-area pt-2 pb-3">
     <div class="container">
