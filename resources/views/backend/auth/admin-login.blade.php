@@ -250,7 +250,7 @@
                 dataType: "JSON",
                 data: {mobile:mobileNumber},
                 success: function (data) {
-                    console.log(data);
+                    // console.log('send otp: '+data);
                     // if (data.status == 'success')
                     if (data.status == 'success')
                     {
@@ -287,7 +287,8 @@
                 dataType: "JSON",
                 data: {otp:otpNumber, mobile_number:mobileNumber},
                 success: function (data) {
-                    console.log(data);
+                    // console.log('sarowar');
+                    // console.log(data);
                     if (data.status == 'success')
                     {
                         $('.otp-div').addClass('d-none').attr('data-active', '');
@@ -327,7 +328,7 @@
             dataType: "JSON",
             data: formData,
             success: function (data) {
-                console.log(data);
+                // console.log(data);
                 if (data.status == 'success')
                 {
                     toastr.success('Your are successfully logged in.');
