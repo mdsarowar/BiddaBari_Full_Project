@@ -7779,6 +7779,11 @@ img {
     width: 100%;
     padding: 20px;
 }
+.course_exam_mobile_res .custome_td, .tab-content .custome_td{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
 
 
 
@@ -7830,7 +7835,44 @@ img {
     .courses-details-area h2 {
         padding-top: 35px !important;
     }
+
+
+
+    .stu_das_mobile_res .col-md-3{
+        width: 50%;
+        padding: 5px !important;
+    }
+    .stu_das_mobile_res .card h3{
+        font-size: 14px !important;
+    }
+    .stu_das_mobile_res .card span{
+        font-size: 14px !important;
+    }
+    .stu_das_mobile_res .card-body{
+        padding: 5px !important;
+        margin-bottom: 3px;
+    }
+    .section-title.text-center h2 {
+        font-size: 24px !important;
+    }
+    .course_exam_mobile_res h3{
+        font-size: 24px !important;
+    }
+    .course_exam_mobile_res tr th, .tab-content tr th{
+        font-size: 16px !important;
+    }
+    .course_exam_mobile_res tr td, .tab-content tr td{
+        font-size: 14px !important;
+    }
+    .footer-widget .footer-logo {
+        margin-left: 0 !important;
+    }
+    .custom_tab_pan_li ul .f-s-22 {
+        font-size: 20px !important;
+    }
 }
+
+
 @media only screen and (min-width : 421px) and (max-width: 520px) {
 
     .mobile_res{
@@ -7864,7 +7906,7 @@ img {
     .blog-card {
         height: 425px !important;
     }
-    .courses-details-area .col-md-3, .col-md-6, .col-md-4, .col-md-8{
+    .courses-details-area .col-md-3, .courses-details-area .col-md-6, .courses-details-area .col-md-4, .courses-details-area .col-md-8{
         width: 50%;
     }
     .courses-details-area h1 {
@@ -7881,6 +7923,38 @@ img {
     }
     .custome_dis_course_price .dis-course-amount {
         width: 85px;
+    }
+
+
+    
+    .stu_das_mobile_res .col-md-3{
+        width: 50%;
+        padding: 5px !important;
+    }
+    .stu_das_mobile_res .card h3{
+        font-size: 14px !important;
+    }
+    .stu_das_mobile_res .card span{
+        font-size: 14px !important;
+    }
+    .stu_das_mobile_res .card-body{
+        padding: 5px !important;
+        margin-bottom: 3px;
+    }
+    .section-title.text-center h2 {
+        font-size: 24px !important;
+    }
+    .course_exam_mobile_res h3{
+        font-size: 24px !important;
+    }
+    .course_exam_mobile_res tr th, .tab-content tr th{
+        font-size: 16px !important;
+    }
+    .course_exam_mobile_res tr td, .tab-content tr td{
+        font-size: 14px !important;
+    }
+    .footer-widget .footer-logo {
+        margin-left: 0 !important;
     }
 }
 
@@ -7914,7 +7988,7 @@ img {
     .blog-card {
         height: 415px !important;
     }
-    .courses-details-area .col-md-3, .col-md-6, .col-md-4, .col-md-8{
+    .courses-details-area .col-md-3, .courses-details-are .col-md-6, .courses-details-area .col-md-4, .courses-details-area .col-md-8{
         width: 50%;
     }
     .courses-details-area h1 {
@@ -7925,6 +7999,38 @@ img {
     }
     .courses-details-area h2 {
         padding-top: 35px !important;
+    }
+
+
+    
+    .stu_das_mobile_res .col-md-3{
+        width: 50%;
+        padding: 5px !important;
+    }
+    .stu_das_mobile_res .card h3{
+        font-size: 20px !important;
+    }
+    .stu_das_mobile_res .card span{
+        font-size: 18px !important;
+    }
+    .stu_das_mobile_res .card-body{
+        padding: 5px !important;
+        margin-bottom: 3px;
+    }
+    .section-title.text-center h2 {
+        font-size: 24px !important;
+    }
+    .course_exam_mobile_res h3{
+        font-size: 24px !important;
+    }
+    .course_exam_mobile_res tr th, .tab-content tr th{
+        font-size: 18px !important;
+    }
+    .course_exam_mobile_res tr td, .tab-content tr td{
+        font-size: 16px !important;
+    }
+    .footer-widget .footer-logo {
+        margin-left: 0 !important;
     }
 }
 
@@ -7957,7 +8063,7 @@ img {
     .blog-card {
         height: 415px !important;
     }
-    .courses-details-area .col-md-3, .col-md-6, .col-md-4, .col-md-8{
+    .courses-details-area .col-md-3, .courses-details-area .col-md-6, .courses-details-area .col-md-4, .courses-details-area .col-md-8{
         width: 50%;
     }
     .courses-details-area h1 {
@@ -8011,5 +8117,20 @@ img {
     }
     .pd_padding{
         padding: 0 !important;
+    }
+    .custome_col_4 .col-md-4{
+        width: 100% !important;
+    }
+    .custom_col_res .col-md-1, .col-md-10{
+        width: 100% !important;
+    }
+    .stu_das_mobile_res .card h3{
+        font-size: 21px !important;
+    }
+    .stu_das_mobile_res .card span{
+        font-size: 19px !important;
+    }
+    .custom_col_12 .col-lg-12{
+        width: 100% !important;
     }
 }
