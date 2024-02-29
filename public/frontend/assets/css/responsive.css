@@ -1358,7 +1358,7 @@
 
 @media only screen and (min-width:768px) and (max-width:991px) {
     .container-fluid {
-        width: 720px;
+        /* width: 720px; */
         margin-left: auto;
         margin-right: auto
     }
@@ -2321,6 +2321,9 @@
 }
 
 @media only screen and (min-width:992px) and (max-width:1199px) {
+    .custom_search_res{
+        display: none;
+    }
     .dis-course-price{
         display: none;
     }
@@ -2343,7 +2346,7 @@
     }
 
     .desktop-nav .navbar .navbar-nav .nav-item a {
-        margin-right: 10px;
+        margin-right: 5px;
         margin-left: 10px;
         font-size: 15px
     }

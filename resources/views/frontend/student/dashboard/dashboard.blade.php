@@ -9,7 +9,7 @@
                         <h2> ড্যাশবোর্ড </h2>
                         <hr class="w-25 mx-auto bg-danger"/>
                     </div>
-                    <div class="mt-3 row product_mobile_res">
+                    <div class="mt-3 row stu_das_mobile_res">
                         <div class="col-md-3">
                             <div class="card card-body text-center">
                                 <h3 class="f-s-30">Enrolled Courses</h3>
@@ -37,11 +37,11 @@
                     </div>
                     <div class="mt-3 row">
                         <div class="col-md-12">
-                            <div class="card overflow-scroll">
+                            <div class="card  course_exam_mobile_res">
                                 <div class="card-header">
                                     <h3 class="text-center f-s-32">Enrolled Courses & Exams</h3>
                                 </div>
-                                <div class="card-body">
+                                <div class="card-body overflow-scroll">
                                     <table class="table table-striped f-s-22">
                                         <thead>
                                             <tr>
@@ -57,7 +57,7 @@
                                             @foreach($orders as $order)
                                                 @if($order->ordered_for != 'product')
                                                     <tr>
-                                                        <td>
+                                                        <td class="custome_td">
                                                             {{ $order->ordered_for == 'course' ? $order->course->title : '' }}
                                                             {{ $order->ordered_for == 'batch_exam' ? $order->batchExam->title : '' }}
                                                         </td>

@@ -2,8 +2,8 @@
 
 @section('student-body')
     <section class="py-5">
-        <div class="container">
-            <div class="row">
+        <div class="">
+            <div class="row custom_col_12">
                 <div class="section-title text-center">
                     <h2>  আমার অর্ডার সমূহ</h2>
                     <hr class="w-25 mx-auto bg-danger"/>
@@ -13,7 +13,7 @@
                         <div class="content">
 
 
-                            <div class="">
+                            <div class="custom_tab_pan_li">
                                 <ul class="nav nav-pills mb-3 text-center" id="pills-tab" role="tablist" style="margin-left: 30%">
                                     <li class="nav-item" role="presentation">
                                         <button class="nav-link active f-s-22" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-all" type="button" role="tab" aria-controls="pills-home" aria-selected="true">All</button>
@@ -29,7 +29,7 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-content overflow-scroll" id="pills-tabContent">
                                 <div class="tab-pane fade show active" id="pills-all" role="tabpanel" aria-labelledby="pills-home-tab">
                                     <table class="table table-striped table-bordered table-hover">
                                         <tr>
@@ -44,11 +44,11 @@
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>#{{ $order->order_invoice_number }}</td>
                                                 @if($order->ordered_for == 'course')
-                                                    <td>{{ $order->course->title }}</td>
+                                                    <td class="custome_td">{{ $order->course->title }}</td>
                                                 @elseif($order->ordered_for == 'batch_exam')
-                                                    <td>{{ $order->batchExam->title }}</td>
+                                                    <td class="custome_td">{{ $order->batchExam->title }}</td>
                                                 @else
-                                                    <td>{{ $order->course->title }}</td>
+                                                    <td class="custome_td">{{ $order->course->title }}</td>
                                                 @endif
                                                     <td>{{ $order->total_amount }}</td>
                                                 <td>
@@ -73,7 +73,7 @@
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>#{{ $order->order_invoice_number }}</td>
-                                                    <td>{{ $order->course->title }}</td>
+                                                    <td class="custome_td">{{ $order->course->title }}</td>
                                                     <td>{{ $order->total_amount }}</td>
                                                     <td>{{ $order->total_amount > $order->paid_amount ?  $order->paid_amount : $order->total_amount }}</td>
                                                     <td>
@@ -98,7 +98,7 @@
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>#{{ $order->order_invoice_number }}</td>
-                                                    <td>{{ $order->batchExam->title }}</td>
+                                                    <td class="custome_td">{{ $order->batchExam->title }}</td>
                                                     <td>{{ $order->total_amount }}</td>
                                                     <td>
                                                         {{ $order->status }}
@@ -122,7 +122,7 @@
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>#{{ $order->order_invoice_number }}</td>
-                                                    <td>{{ $order->product->title }}</td>
+                                                    <td class="custome_td">{{ $order->product->title }}</td>
                                                     <td>{{ $order->total_amount }}</td>
                                                     <td>
                                                         {{ $order->status }}

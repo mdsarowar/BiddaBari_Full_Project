@@ -117,7 +117,7 @@
     <section class="">
         <div class=" ps-0">
             <div class="container-fluid">
-                <div class="row">
+                <div class="row custom_col_res">
                     <div class="col-md-2 pe-0 stu_btn">
                         <!-- <div class="bg-dark pt-5 mobile_res" style="min-height: 450px; height: 100%"> -->
                         <div class="bg-dark pt-5 mobile_res" style="">
