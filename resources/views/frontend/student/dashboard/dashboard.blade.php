@@ -12,25 +12,25 @@
                     <div class="mt-3 row stu_das_mobile_res">
                         <div class="col-md-3">
                             <div class="card card-body text-center">
-                                <h3 class="f-s-30">Enrolled Courses</h3>
+                                <h3 class="f-s-30">কোর্স সমূহ</h3>
                                 <span class="f-s-50">{{ $totalEnrolledCourse }}</span>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="card card-body text-center">
-                                <h3 class="f-s-30">Enrolled Exams</h3>
+                                <h3 class="f-s-30">পরীক্ষা সমূহ</h3>
                                 <span class="f-s-50">{{ $totalEnrolledExams }}</span>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="card card-body text-center">
-                                <h3 class="f-s-30">Purchased Products</h3>
+                                <h3 class="f-s-30">প্রোডাক্ট সমূহ</h3>
                                 <span class="f-s-50">{{ $totalPurchasedProducts }}</span>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="card card-body text-center">
-                                <h3 class="f-s-30">Pending Orders</h3>
+                                <h3 class="f-s-30">পেন্ডিং অর্ডার</h3>
                                 <span class="f-s-50">{{ $totalPendingOrders }}</span>
                             </div>
                         </div>

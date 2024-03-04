@@ -178,7 +178,7 @@
                             </video>
                         </div>
                         <div class="youtube d-none">
-                            <div class="video-container" >
+                            <div class="video-container video_mobile_res" >
                                 <div class="video-foreground">
 
                                     <div id="video"></div>
@@ -239,7 +239,7 @@
     <link rel="stylesheet" href="{{ asset('/') }}backend/assets/plugins/pdf-draw/pdfannotate.css">
     <link rel="stylesheet" href="{{ asset('/') }}backend/assets/plugins/pdf-draw/styles.css">
     <style>
-        .canvas-container, canvas { /*width: 100%!important;*/ margin-top: 10px!important;}
+        .canvas-container, canvas { width: 100%!important; margin-top: 10px!important;}
     </style>
     <style>
         .video-container{
