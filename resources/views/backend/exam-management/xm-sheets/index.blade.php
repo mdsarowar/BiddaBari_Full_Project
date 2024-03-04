@@ -68,7 +68,7 @@
                                 <th>#</th>
                                 <th>Exam Name</th>
                                 <th>Student Name</th>
-                                <th>Xm File</th>
+                                <th>Exam File</th>
                                 <th>Total Mark</th>
                                 <th>Result Mark</th>
                                 <th>Result Status</th>

@@ -1,6 +1,7 @@
 @extends('frontend.master')
 
 @section('body')
+    {{\Illuminate\Support\Facades\Session::put('course_redirect_url',\Illuminate\Support\Facades\Request::url())}}
     @if(!$courseCategory->courseCategories->isEmpty())
         <div class="categories-area pb-70">
             <div class="container">

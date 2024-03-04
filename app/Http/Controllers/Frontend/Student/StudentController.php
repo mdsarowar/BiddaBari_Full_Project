@@ -273,6 +273,7 @@ class StudentController extends Controller
 
     public function showPdf($contentId, $type = null)
     {
+//        return $type;
 
         if (isset($type))
         {

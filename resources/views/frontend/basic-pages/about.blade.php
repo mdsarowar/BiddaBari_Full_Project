@@ -1,7 +1,7 @@
 @extends('frontend.master')
 
 @section('body')
-
+    {{\Illuminate\Support\Facades\Session::put('course_redirect_url',\Illuminate\Support\Facades\Request::url())}}
     <div class="inner-banner" style="background-image: url({{ asset('frontend') }}/assets/images/biddabari-about.jpg);  background-position: center top; background-attachment: fixed;" >
         <div class="container">
             <div class="inner-title text-center">

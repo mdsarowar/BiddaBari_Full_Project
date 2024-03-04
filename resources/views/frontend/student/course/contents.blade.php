@@ -202,6 +202,9 @@
             </div>
         </div>
     </div>
+
+
+{{--    //=========================--}}
     <div class="modal fade show-pdf-modal" id="pdfModal" data-bs-backdrop="static" data-modal-parent="courseContentModal" >
         <div class="modal-dialog modal-dialog-centered modal-xl">
             <div class="modal-content" >
@@ -218,7 +221,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="my-box px-3 mx-auto mt-5" style="position: relative!important; height: auto;">
+                        <div class="my-box px-3 mx-auto mt-5" >
                             <div id="pdf-container"></div>
                         </div>
                     </div>
@@ -560,7 +563,9 @@
 
     <script>
         $(document).on('click', '.show-pdf', function () {
+
             event.preventDefault();
+            console.log('sarowar')
             var status = checkHasClassXm($(this));
             if (status == true)
             {
@@ -569,6 +574,7 @@
                     url: base_url+"student/show-pdf/"+sectionContentId,
                     method: "GET",
                     success: function (data) {
+                        console.log(data);
                         var pdflink = '';
                         if(data.sectionContent.pdf_link != null )
                         {

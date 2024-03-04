@@ -51,7 +51,7 @@ class CourseController extends Controller
         {
             $this->courses = CourseCategory::find($request->category_id)->coursesDescOrder;
         } else {
-            $this->courses = Course::where('parent_id', 0)->orderBy('c_order', 'ASC')->get();
+            $this->courses = Course::where('parent_id', 0)->orderBy('c_order', 'DESC')->get();
         }
         return view('backend.course-management.course.courses.index-drag', [
             'courses'   => $this->courses,

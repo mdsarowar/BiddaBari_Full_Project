@@ -43,9 +43,14 @@
                                     <i class="ri-twitter-fill"></i>
                                 </a>
                             </li>
+{{--                            <li>--}}
+{{--                                <a href="https://www.pinterest.com/" target="_blank">--}}
+{{--                                    <i class="ri-instagram-line"></i>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
                             <li>
-                                <a href="https://www.pinterest.com/" target="_blank">
-                                    <i class="ri-instagram-line"></i>
+                                <a href="https://drive.usercontent.google.com/download?id=10iEnOUjjjhQyc6lM6rv6P1QKAX81Zo_W&export=download&authuser=0" target="_blank">
+                                    <i class="ri-android-fill"></i>
                                 </a>
                             </li>
                         </ul>

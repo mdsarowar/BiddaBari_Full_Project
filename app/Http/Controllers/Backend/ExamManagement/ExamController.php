@@ -135,6 +135,11 @@ class ExamController extends Controller
                 $this->examSheets = BatchExamResult::where('batch_exam_section_content_id', $request->section_content_id)->get();
             }
         }
+//        else{
+//            $this->examSheets =AssignmentFile::all();
+//            $examOf='course';
+//            $sectionContentType=' ';
+//        }
         return view('backend.exam-management.xm-sheets.index', [
 //            'exams'   => Exam::whereStatus(1)->where('xm_type', 'Written')->get(),
 //            'exams'   => BatchExamResult::whereStatus(1)->where('xm_type', 'Written')->get(),
@@ -209,7 +214,9 @@ class ExamController extends Controller
 
     public function checkExamPaper($id = null, $typeOf = null, $sectionContentType = null)
     {
-
+//      $file=  $typeOf == 'course' ? ($sectionContentType == 'written' ? CourseExamResult::find($id) : AssignmentFile::find($id)) : BatchExamResult::find($id);
+//
+//      return $file->file;
         return view('backend.exam-management.xm-sheets.check-paper', [
             'examSheet' => $typeOf == 'course' ? ($sectionContentType == 'written' ? CourseExamResult::find($id) : AssignmentFile::find($id)) : BatchExamResult::find($id),
             'examOf' => $typeOf,

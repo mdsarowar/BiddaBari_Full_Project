@@ -1,7 +1,7 @@
 @extends('frontend.master')
 
 @section('body')
-
+    {{\Illuminate\Support\Facades\Session::put('course_redirect_url',\Illuminate\Support\Facades\Request::url())}}
     <div class="inner-banner inner-banner-bg9">
         <div class="container">
             <div class="inner-title">

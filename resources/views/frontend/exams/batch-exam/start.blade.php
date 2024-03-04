@@ -1,7 +1,7 @@
 @extends('frontend.master')
 
 @section('body')
-
+    {{\Illuminate\Support\Facades\Session::put('course_redirect_url',\Illuminate\Support\Facades\Request::url())}}
 <div class="container-fluid" id="grad1">
     <div class="row" style=" min-height: 500px;">
         <div class="col-md-8 quiz-wizard mx-auto">

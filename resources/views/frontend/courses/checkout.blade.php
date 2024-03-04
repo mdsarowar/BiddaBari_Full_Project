@@ -2,7 +2,7 @@
 
 @section('body')
 
-
+    {{\Illuminate\Support\Facades\Session::put('course_redirect_url',\Illuminate\Support\Facades\Request::url())}}
     <div class="courses-area-two section-bg p-t-50" style="">
         <div class="container">
             <!--        <div class="section-title text-center mb-45">-->
