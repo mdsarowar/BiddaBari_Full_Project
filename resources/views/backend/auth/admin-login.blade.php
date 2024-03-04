@@ -328,11 +328,12 @@
             dataType: "JSON",
             data: formData,
             success: function (data) {
-                // console.log(data);
+                console.log(data);
                 if (data.status == 'success')
                 {
-                    toastr.success('Your are successfully logged in.');
-                    window.location.reload();
+                    toastr.success('Your are successfully logged in the website.');
+                    window.location.href = data.url;
+                    // window.location.reload();
                 } else if (data.status == 'error')
                 {
                     toastr.error('Something went wrong. Please try again');

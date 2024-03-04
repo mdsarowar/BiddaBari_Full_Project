@@ -1,6 +1,7 @@
 @extends('frontend.master')
 
 @section('body')
+    {{\Illuminate\Support\Facades\Session::put('course_redirect_url',\Illuminate\Support\Facades\Request::url())}}
 <div class="courses-area-two section-bg ">
     <div class="container bg-white  pb-70 ps-3">
         <div class="row">

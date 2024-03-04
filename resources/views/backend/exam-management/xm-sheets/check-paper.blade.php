@@ -82,14 +82,16 @@
                     <div class="tool">
                         <button class="btn btn-danger btn-sm" onclick="clearPage()">Clear Page</button>
                     </div>
-                    {{--                            <div class="tool">--}}
-                    {{--                                <button class="btn btn-info btn-sm" onclick="showPdfData()">{}</button>--}}
-                    {{--                            </div>--}}
+{{--                                                <div class="tool">--}}
+{{--                                                    <button class="btn btn-info btn-sm" onclick="showPdfData()">{}</button>--}}
+{{--                                                </div>--}}
                     <div class="tool">
                         <button class="btn btn-primary btn-sm" onclick="savePDF()"><i class="fa fa-save"></i> Save</button>
                     </div>
                 </div>
-                <div id="pdf-container"></div>
+                <div id="pdf-container">
+
+                </div>
             </div>
         </div>
     </div>
@@ -114,7 +116,7 @@
     <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
     <script src="{{ asset('/') }}backend/assets/plugins/pdf-draw/pdfannotate.js"></script>
     <script>
-        var pdf = new PDFAnnotate("pdf-container", "{{ asset($sectionContentType =='assignment' ? $examSheet->file : $examSheet->written_xm_file) }}", {
+        var pdf = new PDFAnnotate("#pdf-container", "{{ asset($sectionContentType =='assignment' ? $examSheet->file : $examSheet->written_xm_file) }}", {
             onPageUpdated(page, oldData, newData) {
                 console.log(page, oldData, newData);
             },

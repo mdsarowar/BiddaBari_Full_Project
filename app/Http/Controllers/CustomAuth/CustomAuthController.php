@@ -43,15 +43,16 @@ class CustomAuthController extends Controller
 //                    return Session::get('course_redirect_url');
                     $redirectUrl = Session::get('course_redirect_url');
                     Session::forget('course_redirect_url');
-                    return response()->json(['status' => 'success']);
-                    return redirect($redirectUrl)->with('success', 'You are successfully logged in.');
+                    return response()->json(['status' => 'success','url'=>$redirectUrl]);
+//                    return redirect('/')->with('success', 'You are successfully logged in.');
                 }
                 if ($request->ajax())
                 {
-//                    return 'ajax';
+                    return 'ajax';
                     return response()->json(['status' => 'success']);
                 }
-                return redirect()->route('dashboard')->with('success', 'You are successfully logged in.');
+                return 'wrong';
+                return redirect()->route('home')->with('success', 'You are successfully logged in.');
             }
         }
         if (str()->contains(url()->current(), '/api/')) {
@@ -98,7 +99,7 @@ class CustomAuthController extends Controller
                         return $this->login($request);
                         return redirect()->route('home')->with('success', 'Your registration completed successfully.');
                     }
-                    return redirect()->route('dashboard')->with('success', 'Your registration completed successfully.');
+                    return redirect()->route('home')->with('success', 'Your registration completed successfully.');
                 }
             }
         } catch (\Exception $exception)

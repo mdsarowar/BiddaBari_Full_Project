@@ -529,7 +529,7 @@ class FrontExamController extends Controller
         $this->totalWrongAns = 0;
         $this->totalProvidedAns = 0;
         $this->exam = BatchExamSectionContent::whereId($contentId)->first();
-        
+
         if ($this->exam)
         {
             if ($this->exam->content_type == 'exam')
@@ -1016,6 +1016,7 @@ class FrontExamController extends Controller
 
     public function uploadAssignmentFiles(Request $request)
     {
+//        return $request;
         try {
             $imageUrl = '';
             $this->pdfFilePath = '';
@@ -1033,9 +1034,14 @@ class FrontExamController extends Controller
                 {
                     File::makeDirectory(public_path('backend/assets/uploaded-files/course-assignment-files'), 0777, true, true);
                 }
-//                        shell_exec('magick convert '. $this->filePathString.public_path($this->pdfFilePath));
-                shell_exec('convert '. $this->filePathString.public_path($this->pdfFilePath));
-
+//                        shell_exec('magick convert'. $this->filePathString.public_path($this->pdfFilePath));
+//               echo shell_exec('convert '. $this->filePathString.public_path($this->pdfFilePath));
+//                echo shell_exec("convert image.png image.pdf");
+//              echo putenv("PATH=your_path_to_the_bin_folder");
+                $output = shell_exec('ls -lart');
+                echo "<pre>$output</pre>";
+                echo 'sarowar';
+                return 0;
                 AssignmentFile::create([
                     'course_section_content_id' => $request->course_content_id,
                     'file'  => $this->pdfFilePath,
