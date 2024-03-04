@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="{{ asset('/') }}backend/assets/plugins/pdf-draw/pdfannotate.css">
     <link rel="stylesheet" href="{{ asset('/') }}backend/assets/plugins/pdf-draw/styles.css">
     <style>
-        .canvas-container, canvas { width: 100%!important; margin-top: 10px!important;}
+        .canvas-container, canvas {}
     </style>
 @endpush
 

@@ -7715,27 +7715,33 @@ img {
         border-radius: 46% 54% 50% 50%/35% 61% 39% 65%
     }
 }
-.mobile_res_btn{
+
+.mobile_res_btn {
     display: none;
 }
 
 .offcanvas_top_bottom {
     margin: 137px 0px 0px 0px;
 }
+
 .stu_btn .btn-warning {
     color: #fff !important;
     background-color: #F18345 !important;
     border-color: #F18345 !important;
 }
+
 .offcanvas {
     background-color: #212529;
 }
+
 .offcanvas-start {
     width: 240px;
 }
+
 .offcanvas-title {
     color: white;
 }
+
 .offcanvas-header .btn-close {
     background-color: white !important;
 }
@@ -7745,6 +7751,7 @@ img {
     /* top: 42px;
     right: 7px; */
 }
+
 .custome_dis_course_price .course-price {
     background: #FFEAE3;
     width: 92px;
@@ -7756,6 +7763,7 @@ img {
     font-weight: 700;
     font-size: 25px;
 }
+
 .custome_dis_course_price .dis-course-amount {
     background-color: #E0F5E2;
     height: 35px;
@@ -7769,17 +7777,22 @@ img {
     font-size: 25px;
     /* top: -25px; */
 }
-.dis-course-price{
+
+.dis-course-price {
     display: block;
 }
-.custome_dis_course_price{
+
+.custome_dis_course_price {
     display: none;
 }
+
 .blog_card_img img {
     width: 100%;
     padding: 20px;
 }
-.course_exam_mobile_res .custome_td, .tab-content .custome_td{
+
+.course_exam_mobile_res .custome_td,
+.tab-content .custome_td {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -7791,310 +7804,529 @@ img {
 
 @media only screen and (min-width : 280px) and (max-width: 420px) {
 
-    .mobile_res{
+    .mobile_res {
         display: none;
     }
-    .mobile_res_btn{
+
+    .mobile_res_btn {
         display: block;
     }
-    .cat_mobile_res .col-md-3, .cat_mobile_res .col-lg-4{
+
+    .cat_mobile_res .col-md-3,
+    .cat_mobile_res .col-lg-4 {
         width: 100%;
     }
-    .pro_book_mobile_res .col-lg-3{
+
+    .pro_book_mobile_res .col-lg-3 {
         width: 50%;
     }
+
     .content h3 a {
         font-size: 14px !important;
         line-height: 16px;
     }
+
     .courses-item .content .bottom-content {
         margin-top: 65px;
     }
-    .dis-course-price{
+
+    .dis-course-price {
         display: none;
     }
-    .custome_dis_course_price{
+
+    .custome_dis_course_price {
         display: block;
     }
+
     .bottom-content a {
         font-size: 16px !important;
         padding: 5px;
     }
+
     .blog-card {
         height: 335px !important;
     }
-    .courses-details-area .col-md-3, .col-md-6, .col-md-4, .col-md-8{
+
+    .courses-details-area .col-md-3,
+    .col-md-6,
+    .col-md-4,
+    .col-md-8 {
         width: 100%;
     }
+
     .courses-details-area h1 {
         font-size: 24px !important;
     }
+
     .courses-details-area h4 {
         font-size: 18px !important;
     }
+
     .courses-details-area h2 {
         padding-top: 35px !important;
     }
 
 
 
-    .stu_das_mobile_res .col-md-3{
+    .stu_das_mobile_res .col-md-3 {
         width: 50%;
         padding: 5px !important;
     }
-    .stu_das_mobile_res .card h3{
+
+    .stu_das_mobile_res .card h3 {
         font-size: 14px !important;
     }
-    .stu_das_mobile_res .card span{
+
+    .stu_das_mobile_res .card span {
         font-size: 14px !important;
     }
-    .stu_das_mobile_res .card-body{
+
+    .stu_das_mobile_res .card-body {
         padding: 5px !important;
         margin-bottom: 3px;
     }
+
     .section-title.text-center h2 {
         font-size: 24px !important;
     }
-    .course_exam_mobile_res h3{
+
+    .course_exam_mobile_res h3 {
         font-size: 24px !important;
     }
-    .course_exam_mobile_res tr th, .tab-content tr th{
+
+    .course_exam_mobile_res tr th,
+    .tab-content tr th {
         font-size: 16px !important;
     }
-    .course_exam_mobile_res tr td, .tab-content tr td{
+
+    .course_exam_mobile_res tr td,
+    .tab-content tr td {
         font-size: 14px !important;
     }
+
     .footer-widget .footer-logo {
         margin-left: 0 !important;
     }
+
     .custom_tab_pan_li ul .f-s-22 {
         font-size: 20px !important;
     }
+
+
+    /* ----------modal design----------- */
+
+    .aks-video-player {
+        width: 100% !important;
+        height: 192px !important;
+    }
+
+    .youtube .video_mobile_res {
+        padding-bottom: 3.25% !important;
+        padding-top: 12px !important;
+        height: auto !important;
+    }
+
+    #videoCommentDiv .contact-form {
+        padding: 10px !important;
+    }
+
+    #videoCommentDiv .contact-form h4 {
+        font-size: 18px !important;
+    }
+
+    .contact-form .form-group .form-control {
+        padding: 0px !important;
+    }
+
+    /* .canvas-container,
+    canvas {
+        width: 350px !important;
+        margin-top: 10px!important;
+    } */
+
+
 }
+
 
 
 @media only screen and (min-width : 421px) and (max-width: 520px) {
 
-    .mobile_res{
+    .mobile_res {
         display: none;
     }
-    .mobile_res_btn{
+
+    .mobile_res_btn {
         display: block;
     }
-    .cat_mobile_res .col-md-3, .cat_mobile_res .col-lg-4, .product_mobile_res .col-lg-3{
+
+    .cat_mobile_res .col-md-3,
+    .cat_mobile_res .col-lg-4,
+    .product_mobile_res .col-lg-3 {
         width: 50%;
     }
+
     .content h3 a {
         font-size: 16px !important;
     }
+
     .courses-item .content .bottom-content {
         margin-top: 92px;
     }
-    .dis-course-price{
+
+    .dis-course-price {
         display: none;
     }
-    .custome_dis_course_price{
+
+    .custome_dis_course_price {
         display: block;
     }
+
     .bottom-content a {
         font-size: 14px !important;
         padding: 5px;
     }
+
     .custome_dis_course_price span {
         font-size: 14px !important;
     }
+
     .blog-card {
         height: 425px !important;
     }
-    .courses-details-area .col-md-3, .courses-details-area .col-md-6, .courses-details-area .col-md-4, .courses-details-area .col-md-8{
+
+    .courses-details-area .col-md-3,
+    .courses-details-area .col-md-6,
+    .courses-details-area .col-md-4,
+    .courses-details-area .col-md-8 {
         width: 50%;
     }
+
     .courses-details-area h1 {
         font-size: 24px !important;
     }
+
     .courses-details-area h4 {
         font-size: 18px !important;
     }
+
     .courses-details-area h2 {
         padding-top: 35px !important;
     }
+
     .custome_dis_course_price .course-price {
         width: 85px;
     }
+
     .custome_dis_course_price .dis-course-amount {
         width: 85px;
     }
 
 
-    
-    .stu_das_mobile_res .col-md-3{
+
+    .stu_das_mobile_res .col-md-3 {
         width: 50%;
         padding: 5px !important;
     }
-    .stu_das_mobile_res .card h3{
+
+    .stu_das_mobile_res .card h3 {
         font-size: 14px !important;
     }
-    .stu_das_mobile_res .card span{
+
+    .stu_das_mobile_res .card span {
         font-size: 14px !important;
     }
-    .stu_das_mobile_res .card-body{
+
+    .stu_das_mobile_res .card-body {
         padding: 5px !important;
         margin-bottom: 3px;
     }
+
     .section-title.text-center h2 {
         font-size: 24px !important;
     }
-    .course_exam_mobile_res h3{
+
+    .course_exam_mobile_res h3 {
         font-size: 24px !important;
     }
-    .course_exam_mobile_res tr th, .tab-content tr th{
+
+    .course_exam_mobile_res tr th,
+    .tab-content tr th {
         font-size: 16px !important;
     }
-    .course_exam_mobile_res tr td, .tab-content tr td{
+
+    .course_exam_mobile_res tr td,
+    .tab-content tr td {
         font-size: 14px !important;
     }
+
     .footer-widget .footer-logo {
         margin-left: 0 !important;
+    }
+
+    /* ----------modal design----------- */
+
+    .aks-video-player {
+        width: 100% !important;
+        height: 192px !important;
+    }
+
+    .youtube .video_mobile_res {
+        padding-bottom: 3.25% !important;
+        padding-top: 12px !important;
+        height: auto !important;
+    }
+
+    #videoCommentDiv .contact-form {
+        padding: 10px !important;
+    }
+
+    #videoCommentDiv .contact-form h4 {
+        font-size: 18px !important;
+    }
+
+    .contact-form .form-group .form-control {
+        padding: 0px !important;
     }
 }
 
 @media only screen and (min-width : 521px) and (max-width : 767px) {
-    
-    .mobile_res{
+
+    .mobile_res {
         display: none;
     }
-    .mobile_res_btn{
+
+    .mobile_res_btn {
         display: block;
     }
-    .cat_mobile_res .col-md-3, .cat_mobile_res .col-lg-4, .product_mobile_res .col-lg-3{
+
+    .cat_mobile_res .col-md-3,
+    .cat_mobile_res .col-lg-4,
+    .product_mobile_res .col-lg-3 {
         width: 50%;
     }
+
     .content h3 a {
         font-size: 19px !important;
     }
+
     .courses-item .content .bottom-content {
         margin-top: 65px;
     }
-    .dis-course-price{
+
+    .dis-course-price {
         display: none;
     }
-    .custome_dis_course_price{
+
+    .custome_dis_course_price {
         display: block;
     }
+
     .bottom-content a {
         font-size: 16px !important;
         padding: 5px;
     }
+
     .blog-card {
         height: 415px !important;
     }
-    .courses-details-area .col-md-3, .courses-details-are .col-md-6, .courses-details-area .col-md-4, .courses-details-area .col-md-8{
+
+    .courses-details-area .col-md-3,
+    .courses-details-are .col-md-6,
+    .courses-details-area .col-md-4,
+    .courses-details-area .col-md-8 {
         width: 50%;
     }
+
     .courses-details-area h1 {
         font-size: 24px !important;
     }
+
     .courses-details-area h4 {
         font-size: 18px !important;
     }
+
     .courses-details-area h2 {
         padding-top: 35px !important;
     }
 
 
-    
-    .stu_das_mobile_res .col-md-3{
+
+    .stu_das_mobile_res .col-md-3 {
         width: 50%;
         padding: 5px !important;
     }
-    .stu_das_mobile_res .card h3{
+
+    .stu_das_mobile_res .card h3 {
         font-size: 20px !important;
     }
-    .stu_das_mobile_res .card span{
+
+    .stu_das_mobile_res .card span {
         font-size: 18px !important;
     }
-    .stu_das_mobile_res .card-body{
+
+    .stu_das_mobile_res .card-body {
         padding: 5px !important;
         margin-bottom: 3px;
     }
+
     .section-title.text-center h2 {
         font-size: 24px !important;
     }
-    .course_exam_mobile_res h3{
+
+    .course_exam_mobile_res h3 {
         font-size: 24px !important;
     }
-    .course_exam_mobile_res tr th, .tab-content tr th{
+
+    .course_exam_mobile_res tr th,
+    .tab-content tr th {
         font-size: 18px !important;
     }
-    .course_exam_mobile_res tr td, .tab-content tr td{
+
+    .course_exam_mobile_res tr td,
+    .tab-content tr td {
         font-size: 16px !important;
     }
+
     .footer-widget .footer-logo {
         margin-left: 0 !important;
+    }
+
+    /* ----------modal design----------- */
+
+    .aks-video-player {
+        width: 100% !important;
+        height: 192px !important;
+    }
+
+    .youtube .video_mobile_res {
+        padding-bottom: 3.25% !important;
+        padding-top: 12px !important;
+        height: auto !important;
+    }
+
+    #videoCommentDiv .contact-form {
+        padding: 10px !important;
+    }
+
+    #videoCommentDiv .contact-form h4 {
+        font-size: 18px !important;
+    }
+
+    .contact-form .form-group .form-control {
+        padding: 0px !important;
     }
 }
 
 @media only screen and (min-width : 576px) and (max-width : 767px) {
-    .mobile_res{
+    .mobile_res {
         display: none;
     }
-    .mobile_res_btn{
+
+    .mobile_res_btn {
         display: block;
     }
-    .cat_mobile_res .col-md-3, .cat_mobile_res .col-lg-4, .product_mobile_res .col-lg-3{
+
+    .cat_mobile_res .col-md-3,
+    .cat_mobile_res .col-lg-4,
+    .product_mobile_res .col-lg-3 {
         width: 50%;
     }
+
     .content h3 a {
         font-size: 19px !important;
     }
+
     .courses-item .content .bottom-content {
         margin-top: 65px;
     }
-    .dis-course-price{
+
+    .dis-course-price {
         display: none;
     }
-    .custome_dis_course_price{
+
+    .custome_dis_course_price {
         display: block;
     }
+
     .bottom-content a {
         font-size: 16px !important;
         padding: 5px;
     }
+
     .blog-card {
         height: 415px !important;
     }
-    .courses-details-area .col-md-3, .courses-details-area .col-md-6, .courses-details-area .col-md-4, .courses-details-area .col-md-8{
+
+    .courses-details-area .col-md-3,
+    .courses-details-area .col-md-6,
+    .courses-details-area .col-md-4,
+    .courses-details-area .col-md-8 {
         width: 50%;
     }
+
     .courses-details-area h1 {
         font-size: 24px !important;
     }
+
     .courses-details-area h4 {
         font-size: 18px !important;
     }
+
     .courses-details-area h2 {
         padding-top: 35px !important;
     }
+
+    /* ----------modal design----------- */
+
+    .aks-video-player {
+        width: 100% !important;
+        height: 192px !important;
+    }
+
+    .youtube .video_mobile_res {
+        padding-bottom: 3.25% !important;
+        padding-top: 12px !important;
+        height: auto !important;
+    }
+
+    #videoCommentDiv .contact-form {
+        padding: 10px !important;
+    }
+
+    #videoCommentDiv .contact-form h4 {
+        font-size: 18px !important;
+    }
+
+    .contact-form .form-group .form-control {
+        padding: 0px !important;
+    }
 }
-@media only screen and (min-width : 768px) and (max-width: 991px){
-    .mobile_res{
+
+@media only screen and (min-width : 768px) and (max-width: 991px) {
+    .mobile_res {
         display: none;
     }
-    .mobile_res_btn{
+
+    .mobile_res_btn {
         display: block;
     }
-    .cat_mobile_res .col-md-3{
+
+    .cat_mobile_res .col-md-3 {
         width: 33.33%;
     }
+
     .courses-item .content .bottom-content {
         margin-top: 65px;
     }
-    .dis-course-price{
+
+    .dis-course-price {
         display: none;
     }
-    .custome_dis_course_price{
+
+    .custome_dis_course_price {
         display: block;
     }
+
     .bottom-content a {
         font-size: 16px !important;
         padding: 5px;
@@ -8103,34 +8335,71 @@ img {
     .content h3 a {
         font-size: 24px !important;
     }
+
     .blog-card {
         height: 500px !important;
     }
-    .courses-details-area h1{
+
+    .courses-details-area h1 {
         font-size: 24px !important;
     }
-    .courses-details-area h2{
+
+    .courses-details-area h2 {
         font-size: 25px !important;
     }
-    .courses-details-area h4{
+
+    .courses-details-area h4 {
         font-size: 16px !important;
     }
-    .pd_padding{
+
+    .pd_padding {
         padding: 0 !important;
     }
-    .custome_col_4 .col-md-4{
+
+    .custome_col_4 .col-md-4 {
         width: 100% !important;
     }
-    .custom_col_res .col-md-1, .col-md-10{
+
+    .custom_col_res .col-md-1,
+    .col-md-10 {
         width: 100% !important;
     }
-    .stu_das_mobile_res .card h3{
+
+    .stu_das_mobile_res .card h3 {
         font-size: 21px !important;
     }
-    .stu_das_mobile_res .card span{
+
+    .stu_das_mobile_res .card span {
         font-size: 19px !important;
     }
-    .custom_col_12 .col-lg-12{
+
+    .custom_col_12 .col-lg-12 {
         width: 100% !important;
+    }
+
+
+    /* ----------modal design----------- */
+
+    .aks-video-player {
+        width: 100% !important;
+        height: 192px !important;
+    }
+
+    .youtube .video_mobile_res {
+        padding-bottom: 3.25% !important;
+        padding-top: 12px !important;
+        height: auto !important;
+    }
+
+    #videoCommentDiv .contact-form {
+        padding: 10px !important;
+    }
+
+    #videoCommentDiv .contact-form h4 {
+        font-size: 18px !important;
+    }
+
+    .contact-form .form-group .form-control {
+        padding: 0px !important;
     }
 }
