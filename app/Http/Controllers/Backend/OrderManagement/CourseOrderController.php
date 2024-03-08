@@ -26,12 +26,12 @@ class CourseOrderController extends Controller
         if (!empty($request->course_id))
         {
 //            $this->courseOrders = CourseOrder::whereCourseId($request->course_id)->get();
-            $this->courseOrders = ParentOrder::where('ordered_for', 'course')->whereParentModelId($request->course_id)->latest()->paginate(20);
+            $this->courseOrders = ParentOrder::where('ordered_for', 'course')->whereParentModelId($request->course_id)->latest()->paginate(500);
 //            $this->courseOrders = ParentOrder::where('status', 'approved')->whereParentModelId($request->course_id)->latest()->paginate(20);
 //            return $this->courseOrders;
         } else {
 //            $this->courseOrders = CourseOrder::latest()->take(30)->get();
-            $this->courseOrders = ParentOrder::where('ordered_for', 'course')->latest()->paginate(20);
+            $this->courseOrders = ParentOrder::where('ordered_for', 'course')->latest()->paginate(500);
 //            $this->courseOrders = ParentOrder::where('status','approved')->latest()->paginate(20);
 //            dd($this->courseOrders) ;
         }

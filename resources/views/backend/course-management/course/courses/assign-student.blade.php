@@ -15,7 +15,7 @@
                     @endcan
                 </div>
                 <div class="card-body">
-                    <table class="table" id="">
+                    <table class="table" id="file-datatable">
                         <thead>
                         <tr>
 {{--                            <th>#</th>--}}
@@ -57,7 +57,7 @@
                         @endif
                         </tbody>
                     </table>
-                    {{ $students->links() }}
+{{--                    {{ $students->links() }}--}}
 {{--                    {{ $dataTable->table() }}--}}
 
 
@@ -269,7 +269,8 @@
 
 @push('script')
 
-
+    @include('backend.includes.assets.plugin-files.datatable')
+    @include('backend.includes.assets.plugin-files.editor')
     {{--    data tables from reza vai starts--}}
 {{--    <script src="{{asset('admin/js_datatables/js/jszip.min.js')}}"></script>--}}
 {{--    <script src="{{asset('admin/js_datatables/js/pdfmake.min.js')}}"></script>--}}
@@ -363,7 +364,7 @@
     {{--    data tables from reza vai ends--}}
 
 
-@include('backend.includes.assets.plugin-files.datatable')
+{{--@include('backend.includes.assets.plugin-files.datatable')--}}
 
 @if($errors->any())
     <script>
