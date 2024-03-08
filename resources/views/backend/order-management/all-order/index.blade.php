@@ -3,11 +3,62 @@
 @section('title', 'Manage Order')
 
 @section('body')
-    <div class="row mt-5">
+<div class="row mt-5">
+        <div class="col-sm-12 mx-auto custom_css_admin">
+            <div class="card card-body">
+                <form action="" method="get">
+                    <div class="row" >
+                        <div class="col-md-2">
+                            <input type="date" name="search_date" class="form-control" id="" data-placeholder="">
+                        </div>
+                        <div class="col-md-4 select2-div">
+                            <input name="order_type" class="form-control" id="categoryId" data-placeholder="Select Course Category">
+                        </div>
+                        <div class="col-md-1">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                <label class="form-check-label" for="flexSwitchCheckDefault">Accepted</label>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                <label class="form-check-label" for="flexSwitchCheckDefault">Pending</label>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                <label class="form-check-label" for="flexSwitchCheckDefault">Reject</label>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                <label class="form-check-label" for="flexSwitchCheckDefault">Courses</label>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                <label class="form-check-label" for="flexSwitchCheckDefault">Product</label>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <input type="submit" class="btn btn-success ms-1" style="" value="Search" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- <div class="row mt-5">
         <div class="col-sm-6 mx-auto">
             <div class="card card-body">
                 <form action="" method="get">
-{{--                    @csrf--}}
                     <div class="row" >
                         <div class="col select2-div">
                             <label for="">Order Types </label>
@@ -25,7 +76,7 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div> -->
 {{--    @if(isset($allOrders) && !empty($allOrders))--}}
         <div class="row">
             <div class="col-md-12">
@@ -76,7 +127,7 @@
                                             {{ $allOrder->ordered_for == 'product' ? $allOrder->product->title : '' }}
                                         </td>
                                         <td>{{ $allOrder->ordered_for == 'course' ? $allOrder->course->price ?? 0 : '' }}{{ $allOrder->ordered_for == 'batch_exam' ? $allOrder->batchExam->price ?? 0 : '' }}{{ $allOrder->ordered_for == 'product' ? $allOrder->product->price ?? 0 : '' }}</td>
-{{--                                        <td>{{ $allOrder->ordered_for == 'course' ? $totalDiscount = $allOrder->course->discount_type == 1 ? $allOrder->course->discount_amount : ($allOrder->course->discount_amount * $allOrder->course->price)/100 : 0 }}{{ $allOrder->ordered_for == 'batch_exam' ? $totalDiscount = $allOrder->batchExam->discount_type == 1 ? $allOrder->batchExam->discount_amount : ($allOrder->batchExam->discount_amount * $allOrder->batchExam->price)/100 : 0 }}{{ $allOrder->ordered_for == 'product' ? $allOrder->product->discount_amount :  0 }}</td>--}}
+{{--                                        <td>{{ $allOrder->ordered_for == 'course' ? $totalDiscount = $allOrder->course->discount_type == 1 ? $allOrder->course->discount_amount : ($allOrder->course->discount_amount * $allOrder->course->price) / 100 : 0 }}{{ $allOrder->ordered_for == 'batch_exam' ? $totalDiscount = $allOrder->batchExam->discount_type == 1 ? $allOrder->batchExam->discount_amount : ($allOrder->batchExam->discount_amount * $allOrder->batchExam->price) / 100 : 0 }}{{ $allOrder->ordered_for == 'product' ? $allOrder->product->discount_amount : 0 }}</td>--}}
 {{--                                        @php($totalDiscount = $allOrder->course->discount_type == 1 ? $allOrder->course->discount_amount : ($allOrder->course->discount_amount * $allOrder->course->price)/100)--}}
 {{--                                        <td>{{ $allOrder->user->name }} {{ $allOrder->user->mobile }}</td>--}}
                                         <td>

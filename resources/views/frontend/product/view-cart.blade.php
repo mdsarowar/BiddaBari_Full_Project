@@ -124,12 +124,12 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label for="paidTo" class="f-s-20">Paid To</label>
-                                                <input type="number" id="paidTo"  name="paid_to" class="form-control" placeholder="Paid To" />
+                                                <input type="text" id="paidTo"  name="paid_to" class="form-control" placeholder="Paid To" />
                                                 @error('paid_to')<span class="text-danger">{{ $errors->first('paid_to') }}</span>@enderror
                                             </div>
                                             <div class="col-md-6">
                                                 <label for="paidForm" class="f-s-20">Paid Form</label>
-                                                <input type="number" id="paidForm"  name="paid_from" class="form-control" placeholder="Paid Form" />
+                                                <input type="text" id="paidForm"  name="paid_from" class="form-control" placeholder="Paid Form" />
                                                 @error('paid_from')<span class="text-danger">{{ $errors->first('paid_from') }}</span>@enderror
                                             </div>
                                             <div class="col-md-6">

@@ -42,6 +42,37 @@ nav,
 section {
     display: block;
 }
+
+/* ------------Mizan CSS--------------- */
+.custom_css_admin label.form-check-label {
+    margin: 05px 10px;
+}
+.custom_css_admin .form-switch .form-check-input {
+    width: 2.6em;
+}
+.custom_css_admin .form-check-input {
+    height: 1.4em;
+}
+.custom_first_td{
+    width: 60%;
+}
+.custom_2nd_td{
+    width: 15%;
+}
+.custom_3rd_td{
+    width: 15%;
+}
+.custom_4th_td{
+    width: 10%;
+}
+/* ------------Mizan CSS--------------- */
+
+
+
+
+
+
+
 body {
     background-color: #f7f8f9;
     color: #495057;
