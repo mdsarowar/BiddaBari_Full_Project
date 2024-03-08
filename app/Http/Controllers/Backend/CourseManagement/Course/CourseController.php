@@ -51,7 +51,7 @@ class CourseController extends Controller
         {
             $this->courses = CourseCategory::find($request->category_id)->coursesDescOrder;
         } else {
-            $this->courses = Course::where('parent_id', 0)->orderBy('c_order', 'DESC')->get();
+            $this->courses = Course::where('parent_id', 0)->orderBy('c_order', 'DESC')->paginate(500);
         }
         return view('backend.course-management.course.courses.index-drag', [
             'courses'   => $this->courses,
@@ -74,6 +74,7 @@ class CourseController extends Controller
      */
     public function store(CourseCreateFormRequest $request)
     {
+//        return 'sarowar';
         abort_if(Gate::denies('store-course'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         $this->course = Course::createOrUpdateCourse($request);
         $this->course->courseCategories()->sync(explode(',', $request->course_categories[0]));
@@ -189,37 +190,37 @@ class CourseController extends Controller
 
 //       codes by reza vai
         $sql = "select
-c.id course_id,
-c.title course_title,
-s.id student_id,
-s.user_id,
-s.status student_status,
-u.id user_table_id,
-u.name user_name,
-u.mobile user_mobile,
-u.email user_email
-from courses c
-inner join course_student cs on cs.course_id = c.id
-inner join students s on s.id = cs.student_id
-inner join users u on u.id = s.user_id
-where c.id = $courseId
-group by
-c.id,
-c.title,
-s.id,
-s.user_id,
-s.status,
-u.id,
-u.name,
-u.mobile,
-u.email";
+            c.id course_id,
+            c.title course_title,
+            s.id student_id,
+            s.user_id,
+            s.status student_status,
+            u.id user_table_id,
+            u.name user_name,
+            u.mobile user_mobile,
+            u.email user_email
+            from courses c
+            inner join course_student cs on cs.course_id = c.id
+            inner join students s on s.id = cs.student_id
+            inner join users u on u.id = s.user_id
+            where c.id = $courseId
+            group by
+            c.id,
+            c.title,
+            s.id,
+            s.user_id,
+            s.status,
+            u.id,
+            u.name,
+            u.mobile,
+            u.email";
 
 //       $result = DB::select($sql);
         $this->course = Course::select('id', 'title')->find($courseId);
         $students = [];
         $students =  CourseStudent::where('course_id', $courseId)->with(['students' => function($students) {
             $students->select('id', 'first_name', 'last_name', 'email', 'mobile', 'status')->get();
-        }])->paginate(20);
+        }])->paginate(1000);
 //        if ($request->ajax())
 //        {
 //            return \view('backend.course-management.course.courses.ajax-assign-student', ['students' => $students, 'course' => $this->course]);
@@ -240,6 +241,7 @@ u.email";
 
     public function assignStudent (Request $request, $transferToId)
     {
+//        return $request;
         abort_if(Gate::denies('assign-course-student'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         $validator = $request->validate([
             'course_transfer_form_id' => 'required',
@@ -248,25 +250,49 @@ u.email";
         $xlArray = [];
         $this->course = Course::find($request->course_transfer_form_id);
         $xlArray = Excel::toArray(new StudentTransferImport(), $request->file('student_file'))[0];
+//        $xlArray = Excel::toArray(new StudentTransferImport(), $request->file('student_file'));
+//        return $xlArray[1];
         foreach ($xlArray as $key => $item)
         {
+
+
             if ($key != 0)
             {
+//                return '0'.$item[0];
                $user = User::where('mobile', '0'.$item[0])->first();
+//               $user = User::where('mobile', '01911522517')->first();
+//return $user;
                 if (isset($user))
                 {
-                    $parentOrder = ParentOrder::where(['user_id' => $user->id, 'parent_model_id' => $this->course->id, 'ordered_for' => 'course'])->first();
+//                    return 'check';
+//                    $parentOrder = ParentOrder::where(['user_id' => $user->id, 'parent_model_id' => $this->course->id, 'ordered_for' => 'course'])->first();
+                    $parentOrder = ParentOrder::where('user_id' , $user->id)->first();
+//                    return $parentOrder;
                     if (isset($parentOrder))
                     {
                         $parentOrder->parent_model_id = $transferToId;
                         $parentOrder->save();
                     }
+//                    $currentStudentId = Student::where('user_id', $user->id)->first()->id;
+                    $currentStudentId=Student::where('user_id',$user->id)->first();
+                    if (!isset($currentStudentId)){
+                        $student=new Student();
+                        $student->user_id =$user->id;
+                        $student->first_name = $user->name;
+                        $student->mobile = $user->mobile;
+                       $student->save();
+//                        return 'sarowarcheck';
+                    }
                     $currentStudentId = Student::where('user_id', $user->id)->first()->id;
+//                    return $currentStudentId;
                     Course::find($transferToId)->students()->attach($currentStudentId);
-                    $this->course->students()->detach($currentStudentId);
+
+//                    $this->course->students()->detach($currentStudentId);
                 }
             }
         }
+//        return $user;
+//        return 'sarowar';
 
         return back()->with('success', 'Student assigned to course Successfully.');
     }

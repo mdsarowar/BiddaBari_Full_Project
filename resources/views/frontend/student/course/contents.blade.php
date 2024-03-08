@@ -241,9 +241,9 @@
 {{--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">--}}
     <link rel="stylesheet" href="{{ asset('/') }}backend/assets/plugins/pdf-draw/pdfannotate.css">
     <link rel="stylesheet" href="{{ asset('/') }}backend/assets/plugins/pdf-draw/styles.css">
-    <style>
-        .canvas-container, canvas { width: 100%!important; margin-top: 10px!important;}
-    </style>
+{{--    <style>--}}
+{{--        .canvas-container, canvas { width: 100%!important; margin-top: 10px!important;}--}}
+{{--    </style>--}}
     <style>
         .video-container{
             width:100%!important;
@@ -625,5 +625,17 @@
 
     <script>
 
+    </script>
+
+    <script>
+        setTimeout(function (){
+            if($(window).width()<600){
+                $('.upper-canvas pdf-canvas').css({
+                    "width":"100%",
+                    "margin-top":"100px",
+                    "color":"red",
+                })
+            }
+        },1500)
     </script>
 @endsection

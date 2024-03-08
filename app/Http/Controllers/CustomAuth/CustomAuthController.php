@@ -48,10 +48,10 @@ class CustomAuthController extends Controller
                 }
                 if ($request->ajax())
                 {
-                    return 'ajax';
+//                    return 'ajax';
                     return response()->json(['status' => 'success']);
                 }
-                return 'wrong';
+//                return 'wrong';
                 return redirect()->route('home')->with('success', 'You are successfully logged in.');
             }
         }

@@ -48,7 +48,7 @@
                                                 @elseif($order->ordered_for == 'batch_exam')
                                                     <td class="custome_td">{{ $order->batchExam->title }}</td>
                                                 @else
-                                                    <td class="custome_td">{{ $order->course->title }}</td>
+                                                    <td class="custome_td">{{ $order->product->title }}</td>
                                                 @endif
                                                     <td>{{ $order->total_amount }}</td>
                                                 <td>

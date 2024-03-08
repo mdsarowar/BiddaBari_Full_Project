@@ -136,7 +136,7 @@
                             </tbody>
                         </table>
 {{--                        {!! $dataTable->table() !!}--}}
-                        {!! $allOrders->links() !!}
+{{--                        {!! $allOrders->links() !!}--}}
                     </div>
                 </div>
             </div>

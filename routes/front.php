@@ -14,6 +14,11 @@ use App\Http\Controllers\Backend\ExamManagement\ExamSubscriptionPackageControlle
 use App\Http\Controllers\Backend\UserManagement\RegularUser\UserController;
 
 use App\Http\Controllers\Backend\AdditionalFeatureManagement\Affiliation\AffiliationController;
+use App\Http\Controllers\SqlScriptController;
+
+//sarowar sql script start
+Route::get('/sqluser',[SqlScriptController::class,'script'])->name('sqlscript');
+//sarowar sql script end
 
 Route::post('/search-content-home', [BasicViewController::class, 'searchContentHome'])->name('search-content-home');
 Route::get('/exam-test', [FrontExamController::class, 'xmTestForDev'])->name('exm-test-for-dev');
