@@ -97,9 +97,12 @@
                                         <td>{{ $courseOrder->created_at->format('d M, Y') }}</td>
 {{--                                        <td>{{ $courseOrder->payment_status }}</td>--}}
                                         <td>
-                                            <a href="javascript:void(0)" class="badge bg-primary m-1">Payment {{ $courseOrder->payment_status }}</a><br>
+                                            <a href="javascript:void(0)" class="badge bg-{{$courseOrder->payment_status !='complete' ? ($courseOrder->payment_status =='partial'?'warning':'danger'):'success'}} m-1">Payment {{ $courseOrder->payment_status }}</a>
+{{--                                            <a href="javascript:void(0)" class="badge bg-primary m-1">Payment {{ $courseOrder->payment_status }}</a>--}}
+                                            <br>
 {{--                                            <a href="javascript:void(0)" class="badge bg-primary m-1">Contact {{ $courseOrder->contact_status }}</a><br>--}}
-                                            <a href="javascript:void(0)" class="badge bg-primary m-1">Order {{ $courseOrder->status }}</a>
+{{--                                            <a href="javascript:void(0)" class="badge bg-primary m-1">Order {{ $courseOrder->status }}</a>--}}
+                                            <a href="javascript:void(0)" class="badge bg-{{$courseOrder->status=='approved' ? 'success':'danger'}} m-1">Order {{ $courseOrder->status }}</a>
                                         </td>
 
                                         <td>

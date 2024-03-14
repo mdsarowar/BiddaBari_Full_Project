@@ -9,39 +9,42 @@
                 <form action="" method="get">
                     <div class="row" >
                         <div class="col-md-2">
-                            <input type="date" name="search_date" class="form-control" id="" data-placeholder="">
+
                         </div>
-                        <div class="col-md-4 select2-div">
-                            <input name="order_type" class="form-control" id="categoryId" data-placeholder="Select Course Category">
+                        <div class="col-md-2">
+                            <input type="date" name="date" class="form-control" id="" data-placeholder="">
                         </div>
+{{--                        <div class="col-md-4 select2-div">--}}
+{{--                            <input name="order_type" class="form-control" id="categoryId" data-placeholder="Select Course Category">--}}
+{{--                        </div>--}}
                         <div class="col-md-1">
                             <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                                <label class="form-check-label" for="flexSwitchCheckDefault">Accepted</label>
+                                <input class="form-check-input " name="status" type="radio" value="approved" id="acceptedId">
+                                <label class="form-check-label" for="acceptedId">Accepted</label>
                             </div>
                         </div>
                         <div class="col-md-1">
                             <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                                <label class="form-check-label" for="flexSwitchCheckDefault">Pending</label>
+                                <input class="form-check-input " name="status" type="radio" value="pending" id="pendingId">
+                                <label class="form-check-label" for="pendingId">Pending</label>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="form-check form-switch status_check">
+                                <input class="form-check-input " name="status" type="radio" value="canceled" id="rejectId">
+                                <label class="form-check-label" for="rejectId">Reject</label>
                             </div>
                         </div>
                         <div class="col-md-1">
                             <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                                <label class="form-check-label" for="flexSwitchCheckDefault">Reject</label>
+                                <input class="form-check-input " name="type" value="course" type="radio" id="courseId">
+                                <label class="form-check-label" for="courseId">Courses</label>
                             </div>
                         </div>
                         <div class="col-md-1">
                             <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                                <label class="form-check-label" for="flexSwitchCheckDefault">Courses</label>
-                            </div>
-                        </div>
-                        <div class="col-md-1">
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                                <label class="form-check-label" for="flexSwitchCheckDefault">Product</label>
+                                <input class="form-check-input " name="type" value="product" type="radio" id="productId">
+                                <label class="form-check-label" for="productId">Product</label>
                             </div>
                         </div>
                         <div class="col-auto">
@@ -121,7 +124,7 @@
                                             {{ $allOrder->user->name }} {{ $allOrder->user->mobile }}
                                         </td>
                                         <td>
-                                            <img src="{{ $allOrder->ordered_for == 'course' ? asset($allOrder->course->banner ?? 'frontend/logo/biddabari-card-logo.jpg') : '' }}{{ $allOrder->ordered_for == 'batch_exam' ? asset($allOrder->batchExam->banner ?? 'frontend/logo/biddabari-card-logo.jpg') : '' }}{{ $allOrder->ordered_for == 'product' ? asset($allOrder->product->banner ?? 'frontend/logo/biddabari-card-logo.jpg') : '' }}" alt="" style="height: 70px" />
+                                            <img src="{{ $allOrder->ordered_for == 'course' ? asset($allOrder->course->banner ?? 'frontend/logo/biddabari-card-logo.jpg') : '' }}{{ $allOrder->ordered_for == 'batch_exam' ? asset($allOrder->batchExam->banner ?? 'frontend/logo/biddabari-card-logo.jpg') : '' }}{{ $allOrder->ordered_for == 'product' ? asset($allOrder->product->image ?? 'frontend/logo/biddabari-card-logo.jpg') : '' }}" alt="" style="height: 70px" />
                                             <br> {{ $allOrder->ordered_for == 'course' ? $allOrder->course->title : '' }}
                                             {{ $allOrder->ordered_for == 'batch_exam' ? $allOrder->batchExam->title : '' }}
                                             {{ $allOrder->ordered_for == 'product' ? $allOrder->product->title : '' }}
@@ -145,9 +148,15 @@
                                         <td>{{ $allOrder->created_at->format('d M, Y') }}</td>
                                         <td>{{ $allOrder->payment_status }}</td>
                                         <td>
-                                            <a href="javascript:void(0)" class="badge bg-primary m-1">Payment {{ $allOrder->payment_status }}</a><br>
-                                            <a href="javascript:void(0)" class="badge bg-primary m-1">Contact {{ $allOrder->contact_status }}</a><br>
-                                            <a href="javascript:void(0)" class="badge bg-primary m-1">Order {{ $allOrder->status }}</a>
+                                            @if($allOrder->ordered_for == 'course')
+                                                <a href="javascript:void(0)" class="badge bg-{{$allOrder->payment_status !='complete' ? ($allOrder->payment_status =='partial'?'warning':'danger'):'success'}} m-1">Payment {{ $allOrder->payment_status }}</a><br>
+                                                {{--                                            <a href="javascript:void(0)" class="badge bg-primary m-1">Contact {{ $allOrder->contact_status }}</a><br>--}}
+                                                <a href="javascript:void(0)" class="badge bg-{{$allOrder->status=='approved' ? 'success':'danger'}} m-1">Order {{ $allOrder->status }}</a>
+
+                                            @else
+                                                <a href="javascript:void(0)" class="badge bg-{{$allOrder->status=='approved' ? 'success':'danger'}} m-1">Order {{ $allOrder->status }}</a>
+                                            @endif
+
                                         </td>
 {{--                                        <td>--}}
 {{--                                            <a href="javascript:void(0)" class="badge bg-primary">{{ $allOrder->status == 0 ? 'Pending' : '' }}</a>--}}
@@ -155,30 +164,108 @@
 {{--                                            <a href="javascript:void(0)" class="badge bg-primary">{{ $allOrder->status == 2 ? 'Canceled' : '' }}</a>--}}
 {{--                                        </td>--}}
 {{--                                        <td>{{ $allOrder->chckedBy->name ?? '' }}</td>--}}
-                                        <td>
-                                            @can('get-order-details')
-                                            <a href="" data-order-id="{{ $allOrder->id }}" class="btn btn-sm show-order-details btn-warning mt-1" title="Change Order Status">
-                                                <i class="fa-solid fa-print"></i>
-                                            </a>
-                                            @endcan
-                                            <a href="" data-blog-category-id="{{ $allOrder->id }}" class="btn btn-sm btn-warning blog-category-edit-btn mt-1" title="Change Order Status">
-                                                <i class="fa-solid fa-edit"></i>
-                                            </a>
-                                            <br>
-{{--                                            <a href="" data-blog-category-id="{{ $allOrder->id }}" class="btn btn-sm btn-primary blog-category-edit-btnx mt-1" title="Change Order Status">--}}
-{{--                                                <i class="fa-solid fa-edit"></i>--}}
-{{--                                            </a>--}}
-{{--                                            <br />--}}
+                                        @if($allOrder->ordered_for == 'course')
+                                            <td>
+                                                @can('get-order-details')
+                                                    <a href="" data-order-id="{{ $allOrder->id }}" class="btn btn-sm show-order-details btn-warning mt-1" title="Change Order Status">
+                                                        <i class="fa-solid fa-print"></i>
+                                                    </a>
+                                                @endcan
+                                                @can('update-course-order')
+                                                    <a href="" data-blog-course-id="{{ $allOrder->id }}" class="btn btn-sm btn-warning blog-course-edit-btn mt-1" title="Change Order Status">
+                                                        <i class="fa-solid fa-edit"></i>
+                                                    </a>
+                                                @endcan
+                                                <br>
+
                                                 @can('delete-course-order')
-                                                    <form class="d-inline" action="{{ route('course-orders.destroy', $allOrder->id) }}" method="post" >
+                                                    <form class="d-inline" action="{{ route('course-orders.destroy', $allOrder->id) }}" method="post">
                                                         @csrf
                                                         @method('delete')
-                                                        <button type="submit" class="btn btn-sm btn-danger mt-1" title="Delete Order">
+                                                        <button type="submit" class="btn btn-sm btn-danger mt-1 data-delete-form" title="Delete Blog Category">
                                                             <i class="fa-solid fa-trash"></i>
                                                         </button>
                                                     </form>
                                                 @endcan
-                                        </td>
+                                            </td>
+                                        @elseif($allOrder->ordered_for == 'batch_exam')
+                                            <td>
+                                                @can('get-order-details')
+                                                    <a href="" data-order-id="{{ $allOrder->id }}" class="btn btn-sm show-order-details btn-warning mt-1" title="Change Order Status">
+                                                        <i class="fa-solid fa-print"></i>
+                                                    </a>
+                                                @endcan
+                                                @can('update-batch-exam-order')
+                                                    <a href="" data-blog-exam-id="{{ $allOrder->id }}" class="btn btn-sm btn-warning blog-exam-edit-btn" title="Change Order Status">
+                                                        <i class="fa-solid fa-edit"></i>
+                                                    </a>
+                                                @endcan
+                                                {{--                                            @can('change-batch-exam-contact-status')--}}
+                                                {{--                                            <a href="" data-blog-category-id="{{ $examOrder->id }}" class="btn btn-sm btn-primary blog-category-edit-btnx" title="Change Order Status">--}}
+                                                {{--                                                <i class="fa-solid fa-edit"></i>--}}
+                                                {{--                                            </a>--}}
+                                                {{--                                                @endcan--}}
+                                                @can('delete-batch-exam-order')
+                                                    <form class="d-inline" action="{{ route('exam-orders.destroy', $allOrder->id) }}" method="post" >
+                                                        @csrf
+                                                        @method('delete')
+                                                        <button type="submit" class="btn btn-sm btn-danger data-delete-form" title="Delete Blog Category">
+                                                            <i class="fa-solid fa-trash"></i>
+                                                        </button>
+                                                    </form>
+                                                @endcan
+                                            </td>
+                                        @else
+                                            <td>
+                                                @can('get-order-details')
+                                                    <a href="" data-order-id="{{ $allOrder->id }}" class="btn btn-sm show-order-details btn-warning mt-1" title="Change Order Status">
+                                                        <i class="fa-solid fa-print"></i>
+                                                    </a>
+                                                @endcan
+                                                @can('update-product-order')
+                                                    <a href="" data-blog-product-id="{{ $allOrder->id }}" class="btn btn-sm btn-warning blog-product-edit-btn mt-1" title="Change Order Status">
+                                                        <i class="fa-solid fa-edit"></i>
+                                                    </a>
+                                                @endcan
+                                                <br>
+
+                                                <br>
+                                                @can('delete-product-order')
+                                                    <form class="d-inline" action="{{ route('product-orders.destroy', $allOrder->id) }}" method="post">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <button type="submit" class="btn btn-sm btn-danger mt-1 data-delete-form" title="Delete Product Order">
+                                                            <i class="fa-solid fa-trash"></i>
+                                                        </button>
+                                                    </form>
+                                                @endcan
+                                            </td>
+                                        @endif
+{{--                                        <td>--}}
+
+{{--                                            @can('get-order-details')--}}
+{{--                                            <a href="" data-order-id="{{ $allOrder->id }}" class="btn btn-sm show-order-details btn-warning mt-1" title="Change Order Status">--}}
+{{--                                                <i class="fa-solid fa-print"></i>--}}
+{{--                                            </a>--}}
+{{--                                            @endcan--}}
+{{--                                            <a href="" data-blog-category-id="{{ $allOrder->id }}" class="btn btn-sm btn-warning blog-category-edit-btn mt-1" title="Change Order Status">--}}
+{{--                                                <i class="fa-solid fa-edit"></i>--}}
+{{--                                            </a>--}}
+{{--                                            <br>--}}
+{{--                                            <a href="" data-blog-category-id="{{ $allOrder->id }}" class="btn btn-sm btn-primary blog-category-edit-btnx mt-1" title="Change Order Status">--}}
+{{--                                                <i class="fa-solid fa-edit"></i>--}}
+{{--                                            </a>--}}
+{{--                                            <br />--}}
+{{--                                                @can('delete-course-order')--}}
+{{--                                                    <form class="d-inline" action="{{ route('course-orders.destroy', $allOrder->id) }}" method="post" >--}}
+{{--                                                        @csrf--}}
+{{--                                                        @method('delete')--}}
+{{--                                                        <button type="submit" class="btn btn-sm btn-danger mt-1" title="Delete Order">--}}
+{{--                                                            <i class="fa-solid fa-trash"></i>--}}
+{{--                                                        </button>--}}
+{{--                                                    </form>--}}
+{{--                                                @endcan--}}
+{{--                                        </td>--}}
                                     </tr>
                                 @endforeach
                             @endif
@@ -193,35 +280,40 @@
             </div>
         </div>
 {{--    @endif--}}
-    <div class="modal fade modal-div" id="blogCategoryModal" data-modal-parent="blogCategoryModal" data-bs-backdrop="static" >
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content" id="">
-                <form id="courseSectionForm" action="" method="post" enctype="multipart/form-data">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="">Update Course Order Status</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
-                    </div>
-                    <div class="modal-body">
 
-                        <div class="card card-body">
-                            @csrf
-                            @method('put')
+
+@include('backend.order-management.common_model')
+
+
+{{--    <div class="modal fade modal-div" id="blogCategoryModal" data-modal-parent="blogCategoryModal" data-bs-backdrop="static" >--}}
+{{--        <div class="modal-dialog modal-dialog-centered">--}}
+{{--            <div class="modal-content" id="">--}}
+{{--                <form id="courseSectionForm" action="" method="post" enctype="multipart/form-data">--}}
+{{--                    <div class="modal-header">--}}
+{{--                        <h5 class="modal-title" id="">Update Course Order Status</h5>--}}
+{{--                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&times;</button>--}}
+{{--                    </div>--}}
+{{--                    <div class="modal-body">--}}
+
+{{--                        <div class="card card-body">--}}
+{{--                            @csrf--}}
+{{--                            @method('put')--}}
 {{--                            <input type="hidden" id="courseIdEdit" name="edit_course_id" />--}}
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label for="paidAmount">Paid Amount</label>
-                                    <input type="text" class="form-control" required name="paid_amount" placeholder="Paid Amount" />
-                                    <span class="text-danger" id="paid_amount"></span>
-                                </div>
-                                <div class="col-sm-6 select2-div">
-                                    <label for="paymentStatus">Payment Status</label>
-                                    <select name="payment_status" class="form-control select2" id="paymentStatus" data-placeholder="Set Payment Status">
-                                        <option value=""></option>
-                                        <option value="pending">Pending</option>
-                                        <option value="partial">Partial</option>
-                                        <option value="complete">Complete</option>
-                                    </select>
-                                </div>
+{{--                            <div class="row">--}}
+{{--                                <div class="col-md-6">--}}
+{{--                                    <label for="paidAmount">Paid Amount</label>--}}
+{{--                                    <input type="text" class="form-control" required name="paid_amount" placeholder="Paid Amount" />--}}
+{{--                                    <span class="text-danger" id="paid_amount"></span>--}}
+{{--                                </div>--}}
+{{--                                <div class="col-sm-6 select2-div">--}}
+{{--                                    <label for="paymentStatus">Payment Status</label>--}}
+{{--                                    <select name="payment_status" class="form-control select2" id="paymentStatus" data-placeholder="Set Payment Status">--}}
+{{--                                        <option value=""></option>--}}
+{{--                                        <option value="pending">Pending</option>--}}
+{{--                                        <option value="partial">Partial</option>--}}
+{{--                                        <option value="complete">Complete</option>--}}
+{{--                                    </select>--}}
+{{--                                </div>--}}
 {{--                                <div class="col-sm-6 select2-div">--}}
 {{--                                    <label for="paymentStatus">Contact Status</label>--}}
 {{--                                    <select name="contact_status" class="form-control select2" id="paymentStatus" data-placeholder="Set Contact Status">--}}
@@ -231,61 +323,61 @@
 {{--                                        <option value="confirmed">Confirmed</option>--}}
 {{--                                    </select>--}}
 {{--                                </div>--}}
-                                <div class="col-sm-6 select2-div">
-                                    <label for="paymentStatus">Order Status</label>
-                                    <select name="status" class="form-control select2" id="paymentStatus" data-placeholder="Set Order Status">
-                                        <option value=""></option>
-                                        <option value="pending">Pending</option>
-                                        <option value="approved">Approved</option>
-                                        <option value="canceled">Canceled</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
+{{--                                <div class="col-sm-6 select2-div">--}}
+{{--                                    <label for="paymentStatus">Order Status</label>--}}
+{{--                                    <select name="status" class="form-control select2" id="paymentStatus" data-placeholder="Set Order Status">--}}
+{{--                                        <option value=""></option>--}}
+{{--                                        <option value="pending">Pending</option>--}}
+{{--                                        <option value="approved">Approved</option>--}}
+{{--                                        <option value="canceled">Canceled</option>--}}
+{{--                                    </select>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary " value="save">Save</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+{{--                    </div>--}}
+{{--                    <div class="modal-footer">--}}
+{{--                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>--}}
+{{--                        <button type="submit" class="btn btn-primary " value="save">Save</button>--}}
+{{--                    </div>--}}
+{{--                </form>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
 
-    <div class="modal fade modal-div" id="contactStatusModal" data-modal-parent="blogCategoryModal" data-bs-backdrop="static" >
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content" id="">
-                <form id="contactStatusForm" action="" method="post" enctype="multipart/form-data">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="">Update Course Order Contact Status</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="card card-body">
-                            @csrf
+{{--    <div class="modal fade modal-div" id="contactStatusModal" data-modal-parent="blogCategoryModal" data-bs-backdrop="static" >--}}
+{{--        <div class="modal-dialog modal-dialog-centered">--}}
+{{--            <div class="modal-content" id="">--}}
+{{--                <form id="contactStatusForm" action="" method="post" enctype="multipart/form-data">--}}
+{{--                    <div class="modal-header">--}}
+{{--                        <h5 class="modal-title" id="">Update Course Order Contact Status</h5>--}}
+{{--                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&times;</button>--}}
+{{--                    </div>--}}
+{{--                    <div class="modal-body">--}}
+{{--                        <div class="card card-body">--}}
+{{--                            @csrf--}}
 {{--                            <input type="hidden" id="courseIdEdit" name="edit_course_id" />--}}
-                            <div class="row">
-                                <div class="col-sm-6 select2-div">
-                                    <label for="paymentStatus">Contact Status</label>
-                                    <select name="contact_status" class="form-control select2" id="paymentStatus" data-placeholder="Set Contact Status">
-                                        <option value=""></option>
-                                        <option value="pending">Pending</option>
-                                        <option value="not_answered">Not Answered</option>
-                                        <option value="confirmed">Confirmed</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary " value="save">Save</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+{{--                            <div class="row">--}}
+{{--                                <div class="col-sm-6 select2-div">--}}
+{{--                                    <label for="paymentStatus">Contact Status</label>--}}
+{{--                                    <select name="contact_status" class="form-control select2" id="paymentStatus" data-placeholder="Set Contact Status">--}}
+{{--                                        <option value=""></option>--}}
+{{--                                        <option value="pending">Pending</option>--}}
+{{--                                        <option value="not_answered">Not Answered</option>--}}
+{{--                                        <option value="confirmed">Confirmed</option>--}}
+{{--                                    </select>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="modal-footer">--}}
+{{--                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>--}}
+{{--                        <button type="submit" class="btn btn-primary " value="save">Save</button>--}}
+{{--                    </div>--}}
+{{--                </form>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
 
     <div class="modal fade modal-div" id="courseDetailsModal" data-modal-parent="blogCategoryModal" data-bs-backdrop="static" >
         <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -315,49 +407,58 @@
 @include('backend.includes.assets.plugin-files.editor')
 
 <script>
-    $(document).on('click', '.blog-category-edit-btn', function () {
-        event.preventDefault();
-        var courseId = $(this).attr('data-blog-category-id'); //change value
-        $.ajax({
-            url: base_url+"course-orders/"+courseId+"/edit",
-            method: "GET",
-            dataType: "JSON",
-            success: function (data) {
-                console.log(data);
-                if (data.paid_amount > 0)
-                {
-                    $('input[name="paid_amount"]').val(data.paid_amount);
-                } else {
-                    $('input[name="paid_amount"]').val(data.total_amount);
-                }
-                $('input[name="paid_amount"]').attr('data-total-amount', data.total_amount);
-                $.each($('select[name="payment_status"] option'), function (paymentIndex, payment) {
-                    if ($(this).val() == data.payment_status)
-                    {
-                        $(this).attr('selected', true);
-                    }
-                })
-                $.each($('select[name="contact_status"] option'), function (contactIndex, contact) {
-                    if ($(this).val() == data.contact_status)
-                    {
-                        $(this).attr('selected', true);
-                    }
-                })
-                $.each($('select[name="status"] option'), function (statusIndex, status) {
-                    if ($(this).val() == data.status)
-                    {
-                        $(this).attr('selected', true);
-                    }
-                })
-                $(".select2").select2({
-                    minimumResultsForSearch: "",
-                    width: "100%",
+    // $(document).on('click', '.blog-category-edit-btn', function () {
+    //     event.preventDefault();
+    //     var courseId = $(this).attr('data-blog-category-id'); //change value
+    //     $.ajax({
+    //         url: base_url+"course-orders/"+courseId+"/edit",
+    //         method: "GET",
+    //         dataType: "JSON",
+    //         success: function (data) {
+    //             console.log(data);
+    //             if (data.paid_amount > 0)
+    //             {
+    //                 $('input[name="paid_amount"]').val(data.paid_amount);
+    //             } else {
+    //                 $('input[name="paid_amount"]').val(data.total_amount);
+    //             }
+    //             $('input[name="paid_amount"]').attr('data-total-amount', data.total_amount);
+    //             $.each($('select[name="payment_status"] option'), function (paymentIndex, payment) {
+    //                 if ($(this).val() == data.payment_status)
+    //                 {
+    //                     $(this).attr('selected', true);
+    //                 }
+    //             })
+    //             $.each($('select[name="contact_status"] option'), function (contactIndex, contact) {
+    //                 if ($(this).val() == data.contact_status)
+    //                 {
+    //                     $(this).attr('selected', true);
+    //                 }
+    //             })
+    //             $.each($('select[name="status"] option'), function (statusIndex, status) {
+    //                 if ($(this).val() == data.status)
+    //                 {
+    //                     $(this).attr('selected', true);
+    //                 }
+    //             })
+    //             $(".select2").select2({
+    //                 minimumResultsForSearch: "",
+    //                 width: "100%",
+    //
+    //             })
+    //             $('#courseSectionForm').attr('action', base_url+"course-orders/"+courseId);
+    //             $('#blogCategoryModal').modal('show');
+    //         }
+    //     })
+    // })
+</script>
 
-                })
-                $('#courseSectionForm').attr('action', base_url+"course-orders/"+courseId);
-                $('#blogCategoryModal').modal('show');
-            }
-        })
+<script>
+    $(document).on('change','.product_type',function (){
+        var acceptval=$(this).val();
+        var pendid=$('#pendingId').val()
+        // console.log(pendid);
+        console.log(acceptval);
     })
 </script>
 

@@ -69,7 +69,8 @@
                                         <td>
 {{--                                            <span href="javascript:void(0)" class="badge bg-primary m-1">Contact - {{ $examOrder->contact_status }}</span>--}}
 {{--                                            <br>--}}
-                                            <span href="javascript:void(0)" class="badge bg-primary m-1">Order - {{ $examOrder->status }}</span>
+{{--                                            <span href="javascript:void(0)" class="badge bg-primary m-1">Order - {{ $examOrder->status }}</span>--}}
+                                            <a href="javascript:void(0)" class="badge bg-{{$examOrder->status=='approved' ? 'success':'danger'}} m-1">Order {{ $examOrder->status }}</a>
                                         </td>
 {{--                                        <td>--}}
 {{--                                            <a href="javascript:void(0)" class="badge bg-primary">{{ $examOrder->status }}</a>--}}
@@ -242,6 +243,8 @@
             })
         })
     </script>
+
+
     <script>
         $(document).on('click', '.blog-category-edit-btnx', function () {
             event.preventDefault();
@@ -278,7 +281,5 @@
             }
         })
     </script>
-    <script>
 
-    </script>
 @endpush
