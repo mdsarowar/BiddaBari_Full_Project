@@ -69,7 +69,8 @@
                                         <td>
 {{--                                            <a href="javascript:void(0)" class="badge bg-primary m-1">Payment {{ $productOrder->payment_status }}</a><br>--}}
 {{--                                            <a href="javascript:void(0)" class="badge bg-primary m-1">Contact {{ $productOrder->contact_status }}</a><br>--}}
-                                            <a href="javascript:void(0)" class="badge bg-primary m-1">Order {{ $productOrder->status }}</a>
+{{--                                            <a href="javascript:void(0)" class="badge bg-primary m-1">Order {{ $productOrder->status }}</a>--}}
+                                            <a href="javascript:void(0)" class="badge bg-{{$productOrder->status=='approved' ? 'success':'danger'}} m-1">Order {{ $productOrder->status }}</a>
                                         </td>
 
                                         <td>
@@ -82,7 +83,7 @@
 
                                             <br>
                                             @can('delete-product-order')
-                                            <form class="d-inline" action="{{ route('course-orders.destroy', $productOrder->id) }}" method="post">
+                                            <form class="d-inline" action="{{ route('product-orders.destroy', $productOrder->id) }}" method="post">
                                                 @csrf
                                                 @method('delete')
                                                 <button type="submit" class="btn btn-sm btn-danger mt-1 data-delete-form" title="Delete Product Order">
@@ -241,7 +242,7 @@
             event.preventDefault();
             var courseId = $(this).attr('data-blog-category-id'); //change value
             $.ajax({
-                url: base_url+"exam-orders/"+courseId+"/edit",
+                url: base_url+"product-orders/"+courseId+"/edit",
                 method: "GET",
                 dataType: "JSON",
                 success: function (data) {
@@ -257,7 +258,7 @@
                         width: "100%",
 
                     })
-                    $('#contactStatusForm').attr('action', base_url+"exam-orders/status/"+courseId);
+                    $('#contactStatusForm').attr('action', base_url+"product-orders/status/"+courseId);
                     $('#contactStatusModal').modal('show');
                 }
             })

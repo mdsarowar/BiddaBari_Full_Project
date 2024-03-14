@@ -18,16 +18,26 @@ class AllOrdersController extends Controller
      */
     public function index(Request $request, AllOrders $dataTable)
     {
-
         abort_if(Gate::denies('manage-all-order'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-//        return $dataTable->render('backend.order-management.all-order.index');
-        if (!empty($request->order_type) && $request->order_type != 'all')
-        {
-            $this->allOrders = ParentOrder::where(['ordered_for' => $request->order_type, 'is_free_course' => 0])->where('status','pending')->latest()->paginate(30);
-        } else {
-//            $this->courseOrders = CourseOrder::latest()->take(30)->get();
-            $this->allOrders = ParentOrder::where('status','pending')->latest()->take(1000)->paginate(30);
+        $this->allOrders=ParentOrder::orderBy('id','DESC');
+        if($request->date== null && $request->status== null && $request->type == null){
+            $this->allOrders = ParentOrder::latest();
+        }else{
+            if (isset($request->date))
+            {
+                $this->allOrders=$this->allOrders->whereBetween('created_at',[$request->date.' 00:00:00',$request->date.' 23:59:59']);
+            }
+            if (isset($request->status)){
+                $this->allOrders=$this->allOrders->where('status',$request->status);
+            }
+            if (isset($request->type)){
+                $this->allOrders = $this->allOrders->where('ordered_for',$request->type);
+            }
         }
+//        return $dataTable->render('backend.order-management.all-order.index');
+//        if (!empty($request->order_type) && $request->order_type != 'all')
+
+        $this->allOrders = $this->allOrders->paginate(500);
         return view('backend.order-management.all-order.index', [
             'allOrders'  => !empty($this->allOrders) ? $this->allOrders : '',
         ]);

@@ -82,7 +82,8 @@ class ExamOrderController extends Controller
                 $student = Student::whereUserId($parentOrder->user_id)->first();
                 $parentOrder->batchExam->students()->attach($student->id);
             }
-            return back()->with('success', 'Order Status Updated Successfully');
+        return redirect()->back()->with('success', 'Order Status Updated Successfully');
+
         } catch (\Exception $exception)
         {
             return back()->with('error', $exception->getMessage());
@@ -96,6 +97,7 @@ class ExamOrderController extends Controller
     {
         abort_if(Gate::denies('delete-batch-exam-order'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         $parentOrder = ParentOrder::find($id);
+//        return $parentOrder;
         ParentOrder::detachStudent('batch_exam', $parentOrder->parent_model_id, $parentOrder->user_id);
         $parentOrder->delete();
         return back()->with('success', 'Order Deleted Successfully');
